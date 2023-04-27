@@ -30,10 +30,11 @@ public interface CertificateMapper {
 package com.obj.mapper;
 
 import java.util.ArrayList;
-import com.obj.model.MemberVO;
+
+import com.obj.model.CertificateVO;
  
 public interface CertificateMapper {
-	public ArrayList<MemberVO> GeneralDown(MemberVO member);
-	public ArrayList<MemberVO> InoutDown(MemberVO member);
-	public ArrayList<MemberVO> SergDown(MemberVO member);
+	public ArrayList<CertificateVO> GeneralDown(CertificateVO member);
+	public ArrayList<CertificateVO> InoutDown(CertificateVO member);
+	public ArrayList<CertificateVO> SergDown(CertificateVO member);
 }

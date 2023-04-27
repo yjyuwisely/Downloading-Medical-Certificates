@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%-- <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%> --%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 <%
-	request.setCharacterEncoding("utf-8");
+request.setCharacterEncoding("utf-8");
 %>
 <meta charset="utf-8" />
 <meta name="viewport"
@@ -41,20 +41,36 @@
 	<div class="container col-xl-8 card shadow border-0 rounded-4 p-3">
 		<h1 class="text-center fw-bolder fs-2 m-2 pb-3">진료확인서</h1>
 		<table class="tablePrint table text-center mb-5">
-			<c:forEach items="${cert}" var="cert">
-				<tr>
-					<td class="inputStyle fw-bold">환자 이름</td>
-					<td>${cert.name}</td>
-					<td class="inputStyle fw-bold">주민등록번호</td>
-					<td>${cert.residentid}</td>
-				</tr>
-				<tr>
-					<td class="inputStyle fw-bold">병명</td>
-					<td colspan="3" class="text-start">${cert.disease}</td>
-				</tr>
-			</c:forEach>
+			<c:if test="${not empty cert}">
+				<c:forEach items="${cert}" var="cert">
+					<tr>
+						<td class="inputStyle fw-bold">환자 이름</td>
+						<td>${cert.name}</td>
+						<td class="inputStyle fw-bold">주민등록번호</td>
+						<td>${cert.residentId}</td>
+					</tr>
+					<tr>
+						<td class="inputStyle fw-bold">병명</td>
+						<td colspan="3" class="text-start">${cert.disease}</td>
+					</tr>
+				</c:forEach>
+				<%-- <c:forEach items="${cert}" var="cert">
+					<tr>
+						<td class="inputStyle fw-bold">환자 이름</td>
+						<td>${cert.name}</td>
+						<td class="inputStyle fw-bold">주민등록번호</td>
+						<td>${cert.residentid}</td>
+					</tr>
+					<tr>
+						<td class="inputStyle fw-bold">병명</td>
+						<td colspan="3" class="text-start">${cert.disease}</td>
+					</tr>
+					 <% System.out.println(cert.name); %>
+				</c:forEach> --%>
+			</c:if>
 		</table>
-		<p class="text-center" style="margin-bottom: 7rem;">상기와 같이 위와 같이 진료받았음을 확인함.</p>
+		<p class="text-center" style="margin-bottom: 7rem;">상기와 같이 위와 같이
+			진료받았음을 확인함.</p>
 		<p class="dateCheif text-center">
 			<c:set var="myDate" value="<%=new java.util.Date()%>" />
 			<fmt:formatDate value="${myDate}" pattern="yyyy년 MM월 dd일" />
