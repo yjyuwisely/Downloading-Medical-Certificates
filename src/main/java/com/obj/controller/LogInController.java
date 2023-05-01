@@ -42,7 +42,7 @@ public class LogInController {
 		}else {		// 일반회원일때
 			logger.info("common user LogIn Success member is = {}", member);
 			logger.info("common user LogIn Success loggedInMember is = {}", loggedInMember);
-			session.setAttribute("common", loggedInMember);
+			session.setAttribute("common", loggedInMember); //로그인한 id를 세션에 저장
 			model.addAttribute("generalAcc", loggedInMember);
 			
 			return "redirect:/";

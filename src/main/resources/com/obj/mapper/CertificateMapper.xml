@@ -9,8 +9,8 @@
 		SELECT m.id, name, residentid, disease
 		FROM member AS m
 		INNER JOIN certificate AS c
-		ON m.id = c.id <!-- 동일 칼럼: id -->
-		WHERE m.id = #{id} <!-- 로그인한 유저 -->
+		ON m.id = c.id <!-- 동일 칼럼: id --> <!-- ON: JOIN 을 하기 전 필터링 -->
+		WHERE m.id = #{id} and c.patientcode = '1' <!-- 로그인한 유저 --> <!-- WHERE: JOIN 을 한 후 필터링 -->
 	</select>
 	
 <!-- 	<select id="GeneralDown" resultMap="GeneralResultMap">
@@ -32,7 +32,7 @@
 		FROM member AS m
 		INNER JOIN certificate AS c 
 		ON m.id = c.id
-		WHERE m.id = #{id}
+		WHERE m.id = #{id} and c.patientcode = '2'
 	</select>
 	<!-- <select id="InoutDown" resultMap="InoutResultMap">
 		SELECT name, residentid, disease, admission_date, discharge_date
@@ -55,7 +55,7 @@
 		FROM member AS m
 		INNER JOIN certificate AS c 
 		ON m.id = c.id
-		WHERE m.id = #{id}
+		WHERE m.id = #{id} and c.patientcode = '3' 
 	</select>
 	
 <!-- 	<select id="SergDown" resultMap="SergResultMap">

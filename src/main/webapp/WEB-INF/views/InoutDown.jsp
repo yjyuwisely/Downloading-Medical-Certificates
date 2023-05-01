@@ -47,7 +47,7 @@
 			</tr>
 			<tr>
 				<td class="inputStyle fw-bold">병명</td>
-				<td colspan="3" class="text-start">${cert.disease}</td>
+				<td colspan="3" class="text-start ps-4">${cert.disease}</td>
 			</tr>
 			<tr>
 				<td class="inputStyle fw-bold">입원 날짜</td>

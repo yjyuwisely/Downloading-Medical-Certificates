@@ -49,7 +49,7 @@
 			</tr>
 			<tr>
 				<td class="inputStyle fw-bold">병명</td>
-				<td colspan="3" class="text-start ms-5">${cert.disease}</td>
+				<td colspan="3" class="text-start ps-4">${cert.disease}</td>
 			</tr>
 		</table>
 		<p class="text-center" style="margin-bottom: 7rem;">상기와 같이 위와 같이
