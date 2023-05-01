@@ -1,7 +1,9 @@
 package com.obj.mapper;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import com.obj.model.CertificateVO;
 import com.obj.model.MemberVO;
 import com.obj.model.PatientVO;
 
@@ -10,5 +12,6 @@ public interface AdminMapper {
 	public void diagnosis(PatientVO patient);
 	public ArrayList<PatientVO> digSelect(PatientVO patient);
 	public void dignosisUpdate(PatientVO patient);
-
+	public List<CertificateVO> memCertJoin(CertificateVO certVal);
+	public MemberVO digModifyJoinMap(MemberVO member);
 }

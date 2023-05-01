@@ -41,32 +41,31 @@
 	<div class="container col-xl-8 card shadow border-0 rounded-4 p-3">
 		<h1 class="text-center fw-bolder fs-2 m-2 pb-3">수술확인서</h1>
 		<table class="tablePrint table text-center mb-5">
-			<c:forEach items="${cert}" var="cert">
-				<tr>
-					<td class="inputStyle fw-bold">환자 이름</td>
-					<td>${cert.name}</td>
-					<td class="inputStyle fw-bold">주민등록번호</td>
-					<td>${cert.residentid}</td>
-				</tr>
-				<tr>
-					<td class="inputStyle fw-bold">병명</td>
-					<td colspan="3" class="text-start">${cert.disease}</td>
-				</tr>
-				<tr>
-					<td class="inputStyle fw-bold">입원 날짜</td>
-					<td>${cert.admission_date}</td>
-					<td class="inputStyle fw-bold">퇴원 날짜</td>
-					<td>${cert.discharge_date}</td>
-				</tr>
+			<tr>
+				<td class="inputStyle fw-bold">환자 이름</td>
+				<td>${cert.name}</td>
+				<td class="inputStyle fw-bold">주민등록번호</td>
+				<td>${cert.residentid}</td>
+			</tr>
+			<tr>
+				<td class="inputStyle fw-bold">병명</td>
+				<td colspan="3" class="text-start">${cert.disease}</td>
+			</tr>
+			<tr>
+				<td class="inputStyle fw-bold">입원 날짜</td>
+				<td>${cert.admission_date}</td>
+				<td class="inputStyle fw-bold">퇴원 날짜</td>
+				<td>${cert.discharge_date}</td>
+			</tr>
 		</table>
 		<p style="margin-bottom: 0.5rem;">
 			위 환자는 본원에서 아래와 같이 수술을 시행하였음을 확인함.<br> <br>
 		</p>
 		<ul style="list-style-type: square;">
 			<li>수술명: ${cert.operation}</li>
-			<li>수술일자: ${cert.surg_date}</li></c:forEach>
+			<li>수술일자: ${cert.surg_date}</li>
 		</ul>
-		
+
 		<p class="dateCheif text-center">
 			<c:set var="myDate" value="<%=new java.util.Date()%>" />
 			<fmt:formatDate value="${myDate}" pattern="yyyy년 MM월 dd일" />

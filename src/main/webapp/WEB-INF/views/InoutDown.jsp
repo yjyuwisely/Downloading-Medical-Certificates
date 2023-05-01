@@ -12,7 +12,7 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 <title>입·퇴원 확인서</title>
-<!-- Favicon--> 
+<!-- Favicon-->
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 <!-- Custom Google font-->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -39,7 +39,6 @@
 	<div class="container col-xl-8 card shadow border-0 rounded-4 p-3">
 		<h1 class="text-center fw-bolder fs-2 m-2 pb-3">입·퇴원 확인서</h1>
 		<table class="tablePrint table text-center mb-5">
-		<c:forEach items="${cert}" var="cert">
 			<tr>
 				<td class="inputStyle fw-bold">환자 이름</td>
 				<td>${cert.name}</td>
@@ -55,7 +54,7 @@
 				<td>${cert.admission_date}</td>
 				<td class="inputStyle fw-bold">퇴원 날짜</td>
 				<td>${cert.discharge_date}</td>
-			</tr></c:forEach>	
+			</tr>
 		</table>
 		<p class="text-center" style="margin-bottom: 5rem;">위와 같이 입·퇴원을
 			확인함.</p>
@@ -69,7 +68,7 @@
 	<div class="print-hide text-center">
 		<button onclick="window.print()"
 			class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block col-lg-3 fw-bolder fs-4 bi bi-download my-4 "
-			href="Download"> 다운로드</button>
+			href="Download">다운로드</button>
 	</div>
 </body>
 </html>

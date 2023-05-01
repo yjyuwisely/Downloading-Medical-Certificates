@@ -1,12 +1,10 @@
 package com.obj.service;
 
-import java.util.ArrayList;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.obj.mapper.CertificateMapper;
-import com.obj.model.CertificateVO;
+import com.obj.model.MemberCertJoinVO;
 
 //This class will implement the 'CertificateService' interface.
 @Service
@@ -17,17 +15,17 @@ public class CertificateServiceImpl implements CertificateService {
 	// helping to check whether the developer what to override the correct method in the parent class or interface. 
 	// typically used when we want to change the default behavior of a basic service implementation in a product or in another module.
 	@Override 
-	public ArrayList<CertificateVO> GeneralDown(CertificateVO member){
+	public MemberCertJoinVO GeneralDown(MemberCertJoinVO member){
 		return certMapper.GeneralDown(member);
 	}
 	
 	@Override
-	public ArrayList<CertificateVO> InoutDown(CertificateVO member){
+	public MemberCertJoinVO InoutDown(MemberCertJoinVO member){
 		return certMapper.InoutDown(member);
 	}
 	
 	@Override
-	public ArrayList<CertificateVO> SergDown(CertificateVO member){
+	public MemberCertJoinVO SergDown(MemberCertJoinVO member){
 		return certMapper.SergDown(member);
 	}
 }
