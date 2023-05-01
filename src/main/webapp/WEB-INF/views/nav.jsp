@@ -65,7 +65,7 @@
 					</c:if>
 
 					<c:if test="${empty common.id and empty adminUser.id}">
-						<li class="nav-item"><a href="SignUp"
+						<li class="nav-item"><a href="SignUp"  id="alertStart"
 							class="nav-link badge bg-gradient-primary-to-secondary text-white px-2 fs-6">회원가입</a></li>
 					</c:if>
 				</ul>

@@ -5,7 +5,7 @@
 <html lang="ko">
 <head>
 <%
-	request.setCharacterEncoding("utf-8");
+request.setCharacterEncoding("utf-8");
 %>
 <meta charset="utf-8" />
 <meta name="viewport"
@@ -159,16 +159,8 @@
 	<script>
 		AOS.init();
 	</script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
 	<!-- alert 창 -->
-	<script>
-    function showAlert(event) {
-        event.preventDefault(); <!-- Prevent a link from opening the URL -->
-        alert("내역이 없습니다.");
-    }
-    function showLogin(event) {
-        event.preventDefault(); <!-- Prevent a link from opening the URL -->
-        alert("로그인하세요.");
-    }
-</script>
+	<script src="resources/js/Issue.js"></script>
 </body>
 </html>
