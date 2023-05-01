@@ -9,8 +9,10 @@
 		SELECT m.id, name, residentid, disease
 		FROM member AS m
 		INNER JOIN certificate AS c
-		ON m.id = c.id <!-- 동일 칼럼: id --> <!-- ON: JOIN 을 하기 전 필터링 -->
-		WHERE m.id = #{id} and c.patientcode = '1' <!-- 로그인한 유저 --> <!-- WHERE: JOIN 을 한 후 필터링 -->
+		<!-- ON: JOIN 을 하기 전 필터링 -->
+		ON m.id = c.id <!-- 동일 칼럼: id --> 
+		<!-- WHERE: JOIN 을 한 후 필터링 -->
+		WHERE m.id = #{id} and c.patientcode = '1' <!-- 로그인한 유저: the value of the id parameter that is passed to the SQL query at runtime -->
 	</select>
 	
 <!-- 	<select id="GeneralDown" resultMap="GeneralResultMap">

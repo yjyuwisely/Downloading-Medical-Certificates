@@ -28,4 +28,9 @@ public class CertificateServiceImpl implements CertificateService {
 	public MemberCertJoinVO SergDown(MemberCertJoinVO member){
 		return certMapper.SergDown(member);
 	}
+	
+	@Override
+	public MemberCertJoinVO Issue(MemberCertJoinVO member){
+		return certMapper.Issue(member);
+	}
 }

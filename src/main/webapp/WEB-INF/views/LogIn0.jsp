@@ -1,18 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="com.obj.model.MemberVO"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<%
-	request.setCharacterEncoding("utf-8");
-%>
+<% request.setCharacterEncoding("utf-8");%>
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>울산 그린 병원</title>
+<title>회원 로그인</title>
 <!-- Favicon-->
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 <!-- Custom Google font-->
@@ -33,38 +30,44 @@
 <jsp:include page="nav.jsp" flush="false" />
 
 <!-- Contents -->
-<body class="d-flex flex-column h-100 flex-shrink-0 BgImage">
-	<div data-aos="fade-right">
-		<div class="container p-5">
-			<div class="row gx-5 align-items-center">
-				<div class="col-xxl-6 mx-3 mt-3">
-					<h1 class="fw-bolder mb-4">
-						<span class="text-gradient d-inline">증명서 인터넷 발급</span>
-					</h1>
-					<%
-						MemberVO member = (MemberVO) session.getAttribute("common");
-					%>
-					<div>common id = ${common.id}</div>
-					<div>
-						member =
-						<%=member%></div>
-					<p class="lead rounded text-dark fs-4 fw-light mb-3"
-						style="text-shadow: 1px 1px 1px white; background-color: rgba(255, 255, 255, 0.5);">
-						인터넷을 사용하여 언제, 어디서든 증명서를 발급받을 수 있으며, 즉시 출력 또는 다운로드할 수 있습니다.</p>
-					<div
-						class="InternetIssue gap-3 d-sm-flex Sans justify-content-sm-center me-5">
-						<a href="Issue?id=${common.id}"
-							class="bg-gradient-primary-to-secondary btn btn-lg fs-4 fw-bolder">
-							<span></span> <span></span> <span></span> <span></span> 인터넷 발급
-							바로가기
-						</a> <a href="Admin"
-							class="bg-gradient-primary-to-secondary btn btn-lg fs-4 fw-bolder">
-							관리자페이지 </a>
+<body>
+	<section>
+		<div data-aos="fade-down" data-aos-easing="linear"
+			data-aos-duration="500">
+			<div class="container px-5">
+				<div class="py-5 px-4 px-md-5">
+					<div class="row gx-5 justify-content-center">
+						<div
+							class="card shadow rounded-4 border-0 col-sm-8 col-md-6 col-lg-5 p-4">
+							<form action="memberIn" method="post">
+								<div class="text-left pb-3">
+									<h1 class="display-5 fw-bolder mb-2 fs-1">
+										<span class="d-inline LogoGradient-text fs-2">회원 로그인</span><br>
+									</h1>
+									<!-- 								<p class="lead fw-normal text-muted mb-0 fs-6">이메일과 비밀번호를 입력하시고
+						로그인해 주세요.</p> -->
+								</div>
+								<div class="Sans form-floating text-muted mb-3">
+									<input class="form-control" name="email" id="email"
+										type="email" placeholder="이메일" /> <label for="email">이메일</label>
+								</div>
+								<div class="Sans form-floating text-muted mb-3">
+									<input class="form-control" name="password" id="password"
+										placeholder="비밀번호" type="password" /> <label for="password">비밀번호</label>
+								</div>
+								<div class="Sans text-center">
+									<button
+										class="btn-1 bg-gradient-primary-to-secondary btn btn-primary btn-lg d-inline-block 
+									col-12 fw-bolder fs-4 mt-1"
+										id="submitButton" type="submit">로그인</button>
+								<input type="hidden" name="id" value="${generalAcc.id}">
+								</div>
+							</form>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</div>
+	</section>
 	<!-- Footer-->
 	<!-- 	<footer class="Sans mt-auto" style="text-shadow: 1px 1px 1px white">
 		<div class=" px-5">

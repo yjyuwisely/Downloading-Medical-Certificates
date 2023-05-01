@@ -18,6 +18,9 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
 	rel="stylesheet" />
+<!-- SweetAlert2 CSS -->
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">
 <!-- Bootstrap icons-->
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
@@ -59,14 +62,15 @@
 									<button
 										class="btn-1 bg-gradient-primary-to-secondary btn btn-primary btn-lg d-inline-block 
 									col-12 fw-bolder fs-4 mt-1"
-										id="submitButton" type="submit">로그인</button>
-								<input type="hidden" name="id" value="${generalAcc.id}">
+										id="submitBtn" type="submit">로그인</button>
+									<input type="hidden" name="id" value="${generalAcc.id}">
 								</div>
 							</form>
 						</div>
 					</div>
 				</div>
 			</div>
+		</div>
 	</section>
 	<!-- Footer-->
 	<!-- 	<footer class="Sans mt-auto" style="text-shadow: 1px 1px 1px white">
@@ -82,8 +86,14 @@
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 	<!-- Core theme JS-->
-	<script src="resources/js/scripts.js"></script>
 	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+	<!--위쪽에 CSS link/jQuery/SweetAlert2 JS/prettyAlert.js 4개 넣어주세요-->
+	<!-- jQuery -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<!-- SweetAlert2 JS -->
+	<script
+		src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
+	<script src="resources/js/prettyAlert.js"></script>
 	<script>
 		AOS.init();
 	</script>
