@@ -10,8 +10,8 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>관리자 페이지</title>
-<!-- Favicon--> 
+<title>네비게이션</title>
+<!-- Favicon-->
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 <!-- Custom Google font-->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -28,7 +28,7 @@
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
-<!-- Navigation--> 
+<!-- Navigation-->
 <div class=print-hide">
 	<nav class="navbar navbar-expand-lg bg-white">
 		<div class="container px-5">
@@ -45,15 +45,29 @@
 				<ul class="navbar-nav ms-auto mb-2 mb-lg-0 mx-1 fw-bolder">
 					<li class="nav-item nav-link">진료예약</li>
 					<!-- <li class="nav-item nav-link">건강정보</li> -->
-					<li class="nav-item nav-link">진료파트</li>
+					<!-- <li class="nav-item nav-link">진료파트</li> -->
 					<!-- <li class="nav-item nav-link">나눔소통</li> -->
 					<li class="nav-item nav-link">병원안내</li>
 				</ul>
 				<ul class="navbar-nav ms-auto mb-2 mb-lg-0 fw-bolder">
-					<li class="nav-item"><a href="LogIn"
-						class="nav-link badge bg-gradient-primary-to-secondary text-white px-2 me-2 fs-6">로그인</a></li>
-					<li class="nav-item"><a href="SignUp"
-						class="nav-link badge bg-gradient-primary-to-secondary text-white px-2 fs-6">회원가입</a></li>
+					<c:if test="${empty common.id and empty adminUser.id}">
+						<li class="nav-item"><a href="LogIn"
+							class="nav-link badge bg-gradient-primary-to-secondary text-white px-2 me-2 fs-6">로그인</a></li>
+					</c:if>
+
+					<c:if test="${not empty common.id}">
+						<li class="nav-item nav-link text-muted px-2 me-2 fs-6">${cert.name}</li>
+					</c:if>
+
+					<c:if test="${not empty common.id or not empty adminUser.id}">
+						<li class="nav-item"><a href="logOut"
+							class="nav-link badge bg-gradient-primary-to-secondary text-white px-2 me-2 fs-6">로그아웃</a></li>
+					</c:if>
+
+					<c:if test="${empty common.id and empty adminUser.id}">
+						<li class="nav-item"><a href="SignUp"
+							class="nav-link badge bg-gradient-primary-to-secondary text-white px-2 fs-6">회원가입</a></li>
+					</c:if>
 				</ul>
 			</div>
 		</div>

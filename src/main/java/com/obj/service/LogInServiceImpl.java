@@ -16,5 +16,4 @@ public class LogInServiceImpl implements LogInService {
 	public MemberVO memberLogIn(MemberVO member) {
 		return logmap.memberLogIn(member);
 	}
-
 }

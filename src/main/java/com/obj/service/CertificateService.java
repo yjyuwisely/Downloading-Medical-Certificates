@@ -8,4 +8,5 @@ public interface CertificateService {
 	public MemberCertJoinVO InoutDown(MemberCertJoinVO member);
 	public MemberCertJoinVO SergDown(MemberCertJoinVO member);
 	public MemberCertJoinVO Issue(MemberCertJoinVO member);
+//	public MemberCertJoinVO Home(MemberCertJoinVO member);
 }

@@ -25,18 +25,18 @@ public class CertificateController {
 		//: value 객체를 name 이름으로 추가함. 뷰 코드에서는 name으로 지정한 이름을 통해서 value를 사용함.
 		// Add certificate data to model for JSP rendering
 		model.addAttribute("cert", certServ.Issue(member));
-		logger.info("This is for Issue = {}", member);
+		logger.info("Issue = {}", member);
 		return "/Issue";
 	}
 	
-	//진료확인서 [230501 원래 코드]
+	//진료확인서
 	@GetMapping("/GeneralDown")
 	public String GeneralDown(Model model, MemberCertJoinVO member, HttpSession session){
 		// model.addAttribute(String name, Object value);
 		//: value 객체를 name 이름으로 추가함. 뷰 코드에서는 name으로 지정한 이름을 통해서 value를 사용함.
 		// Add certificate data to model for JSP rendering
 		model.addAttribute("cert", certServ.GeneralDown(member));
-		logger.info("This is for General certificate download. = {}", member);
+		logger.info("General certificate download. = {}", member);
 		return "/GeneralDown";
 	}
 	
@@ -44,7 +44,7 @@ public class CertificateController {
 	@GetMapping("/InoutDown")
 	public String InoutDown(Model model, MemberCertJoinVO member, HttpSession session){
 		model.addAttribute("cert", certServ.InoutDown(member));
-		logger.info("This is for Hospitalization certificate download. = {}", member);
+		logger.info("Hospitalization certificate download. = {}", member);
 		return "/InoutDown";
 	}
 	
@@ -52,10 +52,9 @@ public class CertificateController {
 	@GetMapping("/SergDown")
 	public String SergDown(Model model, MemberCertJoinVO member, HttpSession session){
 		model.addAttribute("cert", certServ.SergDown(member));
-		logger.info("This is for Surgical certificate download. {}", member);
+		logger.info("Surgical certificate download. {}", member);
 		return "/SergDown";
 	}
-	
 	
 	//진료확인서
 //	@GetMapping("/GeneralDown")

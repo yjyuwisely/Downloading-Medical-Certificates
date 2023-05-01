@@ -41,7 +41,7 @@
 				<div class="col-lg-8 col-xl-7 col-xxl-6">
 					<div class="text-center mb-3">
 						<h1 class="display-5 fw-bolder mb-4">
-							<span class="d-inline LogoGradient-text fs-1">온라인 증명서 발급 </span>
+							<span class="d-inline LogoGradient-text fs-1">온라인 증명서 발급</span>
 						</h1>
 					</div>
 					<div class="card shadow border-0 rounded-4 mb-5">
@@ -66,6 +66,11 @@
 													class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block col-lg-4 mb-2 fw-bolder fs-6"
 													href="#" onclick="showAlert(event)">신청</a>
 											</c:when>
+											<c:when test="${cert.patientcode == null}">
+												<a
+													class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block col-lg-4 mb-2 fw-bolder fs-6"
+													href="#" onclick="showLogin(event)">신청</a>
+											</c:when>
 											<c:otherwise>
 												<a
 													class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block col-lg-4 mb-2 fw-bolder fs-6"
@@ -86,6 +91,11 @@
 													class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block col-lg-4 mb-2 fw-bolder fs-6"
 													href="#" onclick="showAlert(event)">신청</a>
 											</c:when>
+											<c:when test="${cert.patientcode == null}">
+												<a
+													class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block col-lg-4 mb-2 fw-bolder fs-6"
+													href="#" onclick="showLogin(event)">신청</a>
+											</c:when>
 											<c:otherwise>
 												<a
 													class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block col-lg-4 mb-2 fw-bolder fs-6"
@@ -105,6 +115,11 @@
 												<a
 													class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block col-lg-4 mb-2 fw-bolder fs-6"
 													href="#" onclick="showAlert(event)">신청</a>
+											</c:when>
+											<c:when test="${cert.patientcode == null}">
+												<a
+													class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block col-lg-4 mb-2 fw-bolder fs-6"
+													href="#" onclick="showLogin(event)">신청</a>
 											</c:when>
 											<c:otherwise>
 												<a
@@ -149,6 +164,10 @@
     function showAlert(event) {
         event.preventDefault(); <!-- Prevent a link from opening the URL -->
         alert("내역이 없습니다.");
+    }
+    function showLogin(event) {
+        event.preventDefault(); <!-- Prevent a link from opening the URL -->
+        alert("로그인하세요.");
     }
 </script>
 </body>

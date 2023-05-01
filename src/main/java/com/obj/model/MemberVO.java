@@ -21,8 +21,6 @@ public class MemberVO {
 	private String doctor;
 	private List<PatientVO> patientVal;
 	
-	
-	
 	public String getId() {
 		return id;
 	}
@@ -76,13 +74,4 @@ public class MemberVO {
 		return "MemberVO [id=" + id + ", email=" + email + ", password=" + password + ", name=" + name + ", residentid="
 				+ residentid + ", phone=" + phone + ", doctor=" + doctor + ", patientVal=" + patientVal + "]";
 	}
-	
-
-	
-	
-
-	
-	
-	
-
 }

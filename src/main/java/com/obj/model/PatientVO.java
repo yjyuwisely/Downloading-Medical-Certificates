@@ -14,7 +14,6 @@ public class PatientVO {
 	private String operation;
 	private String surg_date;
 	
-
 	public String getId() {
 		return id;
 	}
@@ -69,14 +68,4 @@ public class PatientVO {
 				+ ", admission_date=" + admission_date + ", discharge_date=" + discharge_date + ", disease=" + disease
 				+ ", operation=" + operation + ", surg_date=" + surg_date + "]";
 	}
-	
-
-	
-	
-	
-	
-	
-	
-	
-	
 }

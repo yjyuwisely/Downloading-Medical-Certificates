@@ -19,5 +19,9 @@ public class SignUpServiceImpl implements SignUpService {
 		logger.info("SignUpServiceImpl member ={}", member);
 		signmap.memberJoin(member);
 	}
-
+	
+	@Override
+	public int checkEmail(String email) {
+		return signmap.checkEmail(email);
+	}
 }
