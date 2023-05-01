@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%-- <%@ page import="com.obj.model.MemberCertJoinVO"%> --%>
-<%-- <%@ page import="com.obj.model.MemberVO"%> --%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -43,12 +41,8 @@
 				<div class="col-lg-8 col-xl-7 col-xxl-6">
 					<div class="text-center mb-3">
 						<h1 class="display-5 fw-bolder mb-4">
-							<span class="d-inline LogoGradient-text fs-1">온라인 증명서 발급
-								cert.patientcode: "${cert.patientcode}" </span>
+							<span class="d-inline LogoGradient-text fs-1">온라인 증명서 발급 </span>
 						</h1>
-						<%-- 						<%
-							MemberCertJoinVO member = (MemberCertJoinVO) session.getAttribute("cert");
-						%> --%>
 					</div>
 					<div class="card shadow border-0 rounded-4 mb-5">
 						<div class="card-body row align-items-center mt-4 pb-4">
@@ -65,13 +59,19 @@
 											class="col text-center mb-4 mb-lg-3 p-2 rounded-4 fw-bolder fs-5 Sans">
 											진료확인서</div>
 									</td>
-									<td class="Sans"><c:if
-											test="${cert.patientcode == '2' || cert.patientcode == '3'}">
-											<a
-												class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block col-lg-4 mb-2 fw-bolder fs-6"
-												href="InoutDown?id=${common.id}" onclick="showAlert(event)">
-												신청 </a>
-										</c:if></td>
+									<td class="Sans"><c:choose>
+											<c:when
+												test="${cert.patientcode == '2' || cert.patientcode == '3'}">
+												<a
+													class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block col-lg-4 mb-2 fw-bolder fs-6"
+													href="#" onclick="showAlert(event)">신청</a>
+											</c:when>
+											<c:otherwise>
+												<a
+													class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block col-lg-4 mb-2 fw-bolder fs-6"
+													href="GeneralDown?id=${common.id}">신청</a>
+											</c:otherwise>
+										</c:choose></td>
 								</tr>
 								<tr>
 									<td>
@@ -79,14 +79,19 @@
 											class="col text-center mb-4 mb-lg-3 p-2 rounded-4 fw-bolder fs-5 Sans">
 											입·퇴원확인서</div>
 									</td>
-
-									<td class="Sans"><c:if
-											test="${cert.patientcode == '1' || cert.patientcode == '3'}">
-											<a
-												class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block col-lg-4 mb-2 fw-bolder fs-6"
-												href="InoutDown?id=${common.id}" onclick="showAlert(event)">
-												신청 </a>
-										</c:if></td>
+									<td class="Sans"><c:choose>
+											<c:when
+												test="${cert.patientcode == '1' || cert.patientcode == '3'}">
+												<a
+													class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block col-lg-4 mb-2 fw-bolder fs-6"
+													href="#" onclick="showAlert(event)">신청</a>
+											</c:when>
+											<c:otherwise>
+												<a
+													class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block col-lg-4 mb-2 fw-bolder fs-6"
+													href="InoutDown?id=${common.id}">신청</a>
+											</c:otherwise>
+										</c:choose></td>
 								</tr>
 								<tr>
 									<td>
@@ -94,13 +99,19 @@
 											class="col text-center mb-4 mb-lg-3 p-2 rounded-4 fw-bolder fs-5 Sans">
 											수술확인서</div>
 									</td>
-									<td class="Sans"><c:if
-											test="${cert.patientcode == '1' || cert.patientcode == '2'}">
-											<a
-												class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block col-lg-4 mb-2 fw-bolder fs-6"
-												href="SergDown?id=${common.id}" onclick="showAlert(event)">
-												신청 </a>
-										</c:if></td>
+									<td class="Sans"><c:choose>
+											<c:when
+												test="${cert.patientcode == '1' || cert.patientcode == '2'}">
+												<a
+													class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block col-lg-4 mb-2 fw-bolder fs-6"
+													href="#" onclick="showAlert(event)">신청</a>
+											</c:when>
+											<c:otherwise>
+												<a
+													class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block col-lg-4 mb-2 fw-bolder fs-6"
+													href="SergDown?id=${common.id}">신청</a>
+											</c:otherwise>
+										</c:choose></td>
 								</tr>
 								<tr>
 									<td colspan=2 class="Sans pt-3 mb-3"><a
@@ -135,10 +146,10 @@
 	</script>
 	<!-- alert 창 -->
 	<script>
-		function showAlert(event) {
-			event.preventDefault();
-			alert("내역이 없습니다.");
-		}
-	</script>
+    function showAlert(event) {
+        event.preventDefault(); <!-- Prevent a link from opening the URL -->
+        alert("내역이 없습니다.");
+    }
+</script>
 </body>
 </html>

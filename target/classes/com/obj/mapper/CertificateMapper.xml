@@ -3,10 +3,20 @@
 <mapper namespace="com.obj.mapper.CertificateMapper">
 	<!-- used INNER JOIN to combine data from two tables (patient and certificate) 
 		that share a common field (id). -->
+	<!-- Issue.jsp -->
+	<select id="Issue" resultType="com.obj.model.MemberCertJoinVO">
+		SELECT m.id, patientcode
+		FROM member AS m
+		INNER JOIN certificate AS c
+		<!-- ON: JOIN 을 하기 전 필터링 -->
+		ON m.id = c.id <!-- 동일 칼럼: id --> 
+		<!-- WHERE: JOIN 을 한 후 필터링 -->
+		WHERE m.id = #{id}<!-- 로그인한 유저: the value of the id parameter that is passed to the SQL query at runtime -->
+	</select>	
+		
 	<!-- 진료확인서 -->
-	
 	<select id="GeneralDown" resultType="com.obj.model.MemberCertJoinVO">
-		SELECT m.id, name, residentid, disease
+		SELECT m.id, name, residentid, disease, patientcode
 		FROM member AS m
 		INNER JOIN certificate AS c
 		<!-- ON: JOIN 을 하기 전 필터링 -->
@@ -30,7 +40,7 @@
 	
 	<!-- 입,퇴원확인서 -->
 	<select id="InoutDown" resultType="com.obj.model.MemberCertJoinVO">
-		SELECT m.id, name, residentid, disease, admission_date, discharge_date
+		SELECT m.id, name, residentid, disease, admission_date, discharge_date, patientcode
 		FROM member AS m
 		INNER JOIN certificate AS c 
 		ON m.id = c.id
@@ -53,7 +63,7 @@
 	
 	<!-- 수술확인서 -->
 	<select id="SergDown" resultType="com.obj.model.MemberCertJoinVO">
-		SELECT m.id, name, residentid, disease, operation, surg_date, admission_date, discharge_date
+		SELECT m.id, name, residentid, disease, operation, surg_date, admission_date, discharge_date, patientcode
 		FROM member AS m
 		INNER JOIN certificate AS c 
 		ON m.id = c.id
