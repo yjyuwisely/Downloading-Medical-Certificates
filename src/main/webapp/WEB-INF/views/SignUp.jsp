@@ -38,35 +38,57 @@
 			<div class="row gx-5 justify-content-center">
 				<div
 					class="card shadow rounded-4 border-0 col-sm-8 col-md-6 col-lg-5 px-4 pt-4 pb-1 mb-5">
-					<form action="memberJoin" method="post">
+					<form action="memberJoin" method="post" >
 						<div class="text-left mb-4">
 							<h1 class="fw-bolder">
 								<span class="d-inline LogoGradient-text fs-1">회원 가입</span>
 							</h1>
 						</div>
+ 
 						<div class="Sans form-floating text-muted mb-3">
 							<input class="form-control" name="email" id="email" type="email"
-							onchange = "checkEmail(email)" placeholder="이메일" /> 
-							<label for="email">이메일</label>
+								onchange="checkEmail(email)" placeholder="이메일" /> <label
+								for="email">이메일</label>
 						</div>
 						<div id="emailMsg"></div>
+						<!--  -->
+						<!-- 비밀번호 입력 시 영문자, 숫자, 특수기호 조합(8~25자리 입력) 123-->
 						<div class="Sans form-floating text-muted mb-3">
-							<input class="form-control" name="password" id="password"
-								placeholder="비밀번호" type="password" /> <label for="password">비밀번호</label>
+							<input class="form-control is-invalid" name="password"
+								id="password" placeholder="비밀번호" type="password" required
+								pattern="^(?=.[a-zA-Z])(?=.[0-9])(?=.[!@#$%^&])[a-zA-Z0-9!@#$%^&*]{8,10}$" />
+							<label for="password">비밀번호</label>
+							<div class="valid-feedback">Great!</div>
+							<div class="invalid-feedback">영문자, 숫자, 특수기호 조합으로 8~10자 이내로
+								입력하세요.</div>
 						</div>
+
 						<div class="Sans form-floating text-muted mb-3">
 							<input class="form-control" name="passCk" id="passCk"
 								placeholder="비밀번호 확인" type="password" /> <label for="password">비밀번호
 								확인</label>
 						</div>
+
+
 						<div class="Sans form-floating text-muted mb-3">
 							<input class="form-control" name="name" id="name"
-								placeholder="이름" type="text" /> <label for="name">이름</label>
+								 placeholder="이름" type="text" required pattern="^[가-힣]{2,5}$"><label
+								for="name">성명</label>
+							<div class="valid-feedback">Great!</div>
+							<div class="invalid-feedback">한글로 시작하는 2~5 이내로 입력하세요.</div>
 						</div>
+
+
+						<!-- 						<div class="Sans form-floating text-muted mb-3">
+							<input class="form-control" name="name" id="name"
+								placeholder="이름" type="text" /> <label for="name">이름</label>
+						</div> -->
+
 						<div class="Sans form-floating text-muted mb-3">
 							<input class="form-control" name="residentid" id="residentid"
 								placeholder="주민등록번호" type="text" /> <label for="residentid">주민등록번호</label>
 						</div>
+  
 						<div class="Sans form-floating text-muted mb-3">
 							<input class="form-control" name="phone" id="phone"
 								placeholder="휴대폰 번호" type="text" /> <label for="phone">휴대폰
@@ -85,8 +107,8 @@
 			</div>
 		</div>
 	</div>
-		<!-- Footer-->
-		<!-- 	<footer class="Sans mt-auto" style="text-shadow: 1px 1px 1px white">
+	<!-- Footer-->
+	<!-- 	<footer class="Sans mt-auto" style="text-shadow: 1px 1px 1px white">
 		<div class=" px-5">
 			<div class="row align-items-end  flex-column ">
 				justify-content-between flex-sm-row
@@ -95,15 +117,15 @@
 			</div>
 		</div>
 	</footer> -->
-		<!-- Bootstrap core JS-->
-		<script
-			src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-		<!-- Core theme JS-->
-		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-		<script src="resources/js/checkEmail.js"></script>
-		<script src="resources/js/scripts.js"></script>
-		<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-		<script>
+	<!-- Bootstrap core JS-->
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+	<!-- Core theme JS-->
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="resources/js/checkEmail.js"></script>
+	<script src="resources/js/scripts.js"></script>
+	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+	<script>
 		AOS.init();
 	</script>
 </body>

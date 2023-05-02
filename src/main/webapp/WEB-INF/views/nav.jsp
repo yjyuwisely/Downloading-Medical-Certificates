@@ -14,7 +14,7 @@
 <meta name="author" content="" />
 <title>네비게이션</title>
 <!-- Favicon-->
-<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+<link rel="icon" type="image/x-icon" href="resources/images/hospital.png" />
 <!-- Custom Google font-->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -47,7 +47,7 @@
 				<ul class="navbar-nav ms-auto mb-2 mb-lg-0 mx-1 fw-bolder">
 					<li class="nav-item nav-link">진료예약</li>
 					<!-- <li class="nav-item nav-link">건강정보</li> -->
-					<!-- <li class="nav-item nav-link">진료파트</li> -->
+					<li class="nav-item nav-link">진료파트</li>
 					<!-- <li class="nav-item nav-link">나눔소통</li> -->
 					<li class="nav-item nav-link">병원안내</li>
 				</ul>

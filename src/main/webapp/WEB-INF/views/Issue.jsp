@@ -30,7 +30,7 @@
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <!-- SweetAlert2 CSS -->
 <link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">
+	href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css"> 
 </head>
 <!-- Navigation-->
 <jsp:include page="nav.jsp" flush="false" />
@@ -119,7 +119,7 @@
 		AOS.init();
 	</script>
 	<!-- SweetAlert2 JS -->
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
 	<script
 		src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
 	<!-- alert 창 -->
