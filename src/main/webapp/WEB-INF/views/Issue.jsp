@@ -66,11 +66,6 @@ request.setCharacterEncoding("utf-8");
 													class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block col-lg-4 mb-2 fw-bolder fs-6"
 													href="#" onclick="showAlert(event)">신청</a>
 											</c:when>
-											<c:when test="${cert.patientcode == null}">
-												<a
-													class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block col-lg-4 mb-2 fw-bolder fs-6"
-													href="#" onclick="showLogin(event)">신청</a>
-											</c:when>
 											<c:otherwise>
 												<a
 													class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block col-lg-4 mb-2 fw-bolder fs-6"
@@ -91,12 +86,7 @@ request.setCharacterEncoding("utf-8");
 													class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block col-lg-4 mb-2 fw-bolder fs-6"
 													href="#" onclick="showAlert(event)">신청</a>
 											</c:when>
-											<c:when test="${cert.patientcode == null}">
-												<a
-													class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block col-lg-4 mb-2 fw-bolder fs-6"
-													href="#" onclick="showLogin(event)">신청</a>
-											</c:when>
-											<c:otherwise>
+											<c:otherwise> 
 												<a
 													class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block col-lg-4 mb-2 fw-bolder fs-6"
 													href="InoutDown?id=${common.id}">신청</a>
@@ -116,12 +106,7 @@ request.setCharacterEncoding("utf-8");
 													class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block col-lg-4 mb-2 fw-bolder fs-6"
 													href="#" onclick="showAlert(event)">신청</a>
 											</c:when>
-											<c:when test="${cert.patientcode == null}">
-												<a
-													class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block col-lg-4 mb-2 fw-bolder fs-6"
-													href="#" onclick="showLogin(event)">신청</a>
-											</c:when>
-											<c:otherwise>
+											<c:otherwise> 
 												<a
 													class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block col-lg-4 mb-2 fw-bolder fs-6"
 													href="SergDown?id=${common.id}">신청</a>

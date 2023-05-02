@@ -53,7 +53,7 @@
 		WHERE m.id = #{id} and c.patientcode = '3' 
 	</select> 
 	
-		<resultMap id="MemberCertJoinVal" type="com.obj.model.MemberVO">
+		<resultMap id="MemberCertJoinVal" type="com.obj.model.MemberCertJoinVO">
 		<result property="name" column="name" />
 		<result property="residentid" column="residentid" />
 		<result property="disease" column="disease" />

@@ -4,7 +4,9 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<%request.setCharacterEncoding("utf-8");%>
+<%
+	request.setCharacterEncoding("utf-8");
+%>
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -54,18 +56,16 @@
 						<li class="nav-item"><a href="LogIn"
 							class="nav-link badge bg-gradient-primary-to-secondary text-white px-2 me-2 fs-6">로그인</a></li>
 					</c:if>
-
-					<c:if test="${not empty common.id}">
-						<li class="nav-item nav-link text-muted px-2 me-2 fs-6">${cert.name}</li>
+					<c:if test="${not empty common.id or not empty adminUser.id}">
+						<li
+							class="nav-link badge  text-muted px-2 me-2 fs-6">${cert.name}님</li>
 					</c:if>
-
 					<c:if test="${not empty common.id or not empty adminUser.id}">
 						<li class="nav-item"><a href="logOut"
 							class="nav-link badge bg-gradient-primary-to-secondary text-white px-2 me-2 fs-6">로그아웃</a></li>
 					</c:if>
-
 					<c:if test="${empty common.id and empty adminUser.id}">
-						<li class="nav-item"><a href="SignUp"  id="alertStart"
+						<li class="nav-item"><a href="SignUp" id="alertStart"
 							class="nav-link badge bg-gradient-primary-to-secondary text-white px-2 fs-6">회원가입</a></li>
 					</c:if>
 				</ul>

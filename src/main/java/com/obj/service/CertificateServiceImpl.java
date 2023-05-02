@@ -34,8 +34,8 @@ public class CertificateServiceImpl implements CertificateService {
 		return certMapper.Issue(member);
 	}
 	
-	@Override
-	public MemberCertJoinVO Home(MemberCertJoinVO member){
-		return certMapper.Home(member);
-	}
+//	@Override
+//	public MemberCertJoinVO Home(MemberCertJoinVO member){
+//		return certMapper.Home(member);
+//	}
 }
