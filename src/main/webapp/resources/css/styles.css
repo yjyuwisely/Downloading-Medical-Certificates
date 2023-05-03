@@ -24,13 +24,14 @@
  font-family: 'Montserrat', sans-serif;
  } 
 
+/* 배경 그라데이션 효과 */
 header {
 	height: 100px;
 	width: 100%;
 	background: linear-gradient(180deg, #EBF3FE, white);
 }
 
-/* 프린트 할 때 */
+/* 프린트 할 때 상단 영역 숨김 효과 */
 @media print {
 	.card.shadow {
 		box-shadow: none !important;
@@ -79,7 +80,7 @@ header {
 	}
 }
 
-/* input Style */
+/* input 배경 및 그림자 Style */
 .inputStyle{
 background-color: #fafafa !important;
 box-shadow: inset 0 1px 3px 0 rgba(0,0,0,.08);
@@ -3041,6 +3042,15 @@ textarea.form-control-lg {
 	margin-top: 0.25rem;
 	font-size: 0.875em;
 	color: #dc3545;
+}
+
+/* 추가함 */
+input:valid + .valid-feedback {
+  display: block;
+}
+
+input:invalid + .invalid-feedback {
+  display: block;
 }
 
 .invalid-tooltip {
