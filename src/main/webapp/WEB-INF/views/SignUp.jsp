@@ -5,7 +5,7 @@
 <html lang="ko">
 <head>
 <%
-	request.setCharacterEncoding("utf-8");
+request.setCharacterEncoding("utf-8");
 %>
 <meta charset="utf-8" />
 <meta name="viewport"
@@ -64,9 +64,6 @@
 								placeholder="비밀번호" type="password" required
 								pattern="^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}" />
 							<label for="password">비밀번호</label>
-							<div class="valid-feedback">좋아요!</div>
-							<div class="invalid-feedback">영문자, 숫자, 특수기호 조합으로 8자 이상으로
-								입력하세요.</div>
 						</div>
 
 						<!-- 3. 비밀번호 확인 -->
@@ -81,8 +78,6 @@
 							<input class="form-control" name="name" id="name"
 								placeholder="이름" type="text" required pattern="^[가-힣]{2,5}$">
 							<label for="name">이름</label>
-							<div class="valid-feedback">좋아요!</div>
-							<div class="invalid-feedback">한글로 시작하는 2~5자 이내로 입력하세요.</div>
 						</div>
 
 						<!-- 5. 주민등록번호 -->
@@ -90,8 +85,6 @@
 							<input class="form-control" name="residentid" id="residentid"
 								placeholder="주민등록번호" type="text" required
 								pattern="\d{6}[1-4]\d{6}" /> <label for="residentid">주민등록번호</label>
-							<div class="valid-feedback">좋아요!</div>
-							<div class="invalid-feedback">특수문자 제외 숫자로만 입력해 주세요.</div>
 						</div>
 
 						<!-- 6. 휴대폰 -->
@@ -100,8 +93,6 @@
 								placeholder="휴대폰 번호" type="text" required
 								pattern="01([0|1|6|7|8|9]?)?([0-9]{3,4})?([0-9]{4})$" /> <label
 								for="phone">휴대폰 번호</label>
-							<div class="valid-feedback">좋아요!</div>
-							<div class="invalid-feedback">특수문자 제외 숫자로만 입력해 주세요.</div>
 						</div>
 						<!-- Submit Button-->
 						<div class="Sans text-center pt-2 mb-4">

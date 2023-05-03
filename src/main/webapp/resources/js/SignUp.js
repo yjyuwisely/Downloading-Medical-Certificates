@@ -1,3 +1,43 @@
+const passwordInput = document.getElementById("password");
+passwordInput.addEventListener("input", function() {
+  if (!passwordInput.checkValidity()) {
+    passwordInput.setCustomValidity("영문자, 숫자, 특수기호 조합으로 8자 이상으로 입력하세요.");
+    passwordInput.reportValidity();
+  } else {
+    passwordInput.setCustomValidity("");
+  }
+});
+
+const nameInput = document.getElementById("name");
+nameInput.addEventListener("input", function() {
+  if (!nameInput.checkValidity()) {
+   nameInput.reportValidity();
+   nameInput.setCustomValidity("한글로 시작하는 2~5자 이내로 입력하세요.");
+  } else {
+   nameInput.setCustomValidity("");
+  }
+});
+
+const residentidInput = document.getElementById("residentid");
+residentidInput.addEventListener("input", function() {
+  if (!residentidInput.checkValidity()) {
+   residentidInput.reportValidity();
+   residentidInput.setCustomValidity("특수문자 제외 숫자로만 입력해 주세요.");
+  } else {
+   residentidInput.setCustomValidity("");
+  }
+});
+
+const phoneInput = document.getElementById("phone");
+phoneInput.addEventListener("input", function() {
+  if (!phoneInput.checkValidity()) {
+   phoneInput.reportValidity();
+   phoneInput.setCustomValidity("특수문자 제외 숫자로만 입력해 주세요.");
+  } else {
+   phoneInput.setCustomValidity("");
+  }
+});
+
 /*//1. 이메일 체크
 console.log("emailCheck validation connect");
 function emailCheck() {
