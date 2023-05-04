@@ -20,6 +20,9 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
 	rel="stylesheet" />
+<!-- SweetAlert2 CSS -->
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">
 <!-- Bootstrap icons-->
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
@@ -34,100 +37,83 @@
 <!-- Contents -->
 <body>
 	<div class="container px-5">
-		<div class="row  justify-content-center">
+		<div class="row justify-content-center">
 			<div class="col-9">
 				<div class="border-0 px-5 mb-5">
 					<div class="card-body row px-3 pb-4">
 						<div class="mb-3 p-0">
 							<div class="text-left">
 								<h1 class="display-5 fw-bolder">
-									<span class="text-gradient d-inline pb-2 fs-1">진단서 작성
-										${joinMapVal.id}</span>
+									<span class="text-gradient d-inline pb-2 fs-1">진단서 작성</span>
 								</h1>
 							</div>
-							<div class="text-end Sans text-muted mb-3">
-								<!-- <% String email = (String) session.getAttribute("doctor"); %>  -->
-								관리자 계정: Doctor
-								<!-- <%=email%> -->
-							</div>
+							<form action="doctorIn" method="post" class="text-end Sans text-muted mb-3">
+								<%
+									String name = (String) session.getAttribute("name");
+								%>
+								관리자 계정: Doctor: <%=name%>
+							</form>
 						</div>
-						<form action="dignosisUpdate" method="post" class="Sans mb-3">
-							<%-- 						<input type="hidden" id="memId" name="id" value="${joinMapVal.id}"> --%>
-							<input type="hidden" id="memId" name="id" value="${member.id}"
-								class="form-control mb-3">
-							<table class="text-left DiagnosisTable">
-								<tr class="pt-5">
-									<td class="fs-5 Sans fw-light pb-3" colspan="1">환자:
-										${joinMapVal.name}</td>
-									<td class="text-end fs-5 Sans fw-light pb-3" colspan="2">Patient
-										Code</td>
-									<td><select id="patientcode" name="patientcode"
-										class="mb-3 form-control">
-											<option value="-">선택하세요</option>
-											<option value="1">1</option>
-											<option value="2">2</option>
-											<option value="3">3</option>
-									</select></td>
-								</tr>
-								<tr>
-									<td class="fs-5 Sans fw-light pb-3">Diagnostic</td>
-									<td colspan="3"><textarea id="Diagnostic"
-											name="Diagnostic" class="mb-3 form-control" rows="2">${joinMapVal.patientVal[0].diagnostic}
-								</textarea></td>
-								</tr>
-								<tr>
-									<td class="fs-5 Sans fw-light pb-3">입원 날짜</td>
-									<td><input type="date" id="admission_date"
-										name="admission_date" class="form-control mb-3"
-										value="${joinMapVal.patientVal[0].admission_date}"></td>
-									<td class="fs-5 Sans fw-light px-3 pb-3">퇴원 날짜</td>
-									<td><input type="date" id="discharge_date"
-										name="discharge_date" class="form-control mb-3"
-										value="${joinMapVal.patientVal[0].discharge_date}"></td>
-								</tr>
-								<tr>
-									<td class="fs-5 Sans fw-light pb-3">상병명</td>
-									<td><input type="text" id="disease" name="disease"
-										class=" form-control mb-3"
-										value="${joinMapVal.patientVal[0].disease}"></td>
-									<td class="fs-5 Sans fw-light px-3 pb-3">수술명</td>
-									<td><input type="text" id="operation" name="operation"
-										class="form-control mb-3"
-										value="${joinMapVal.patientVal[0].operation}"></td>
-								</tr>
-								<tr>
-									<td class="fs-5 Sans fw-light pb-3">수술 날짜</td>
-									<td colspan="3"><input type="date" id="surg_date"
-										name="surg_date" value="${joinMapVal.patientVal[0].surg_date}"
-										class="form-control mb-3"></td>
-								</tr>
-							</table>
-							<div class="row justify-content-center Sans my-4">
-								<input
-									class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block col-3 p-1 fw-bolder fs-5"
-									id="ModSubBTN" type="submit" value="저장하기"
-									onclick="Check_CD(event)">
-							</div>
-						</form>
+						<input type="hidden" id="memId" name="id" value="${member.id}" class="form-control mb-3">
+						<table class="text-left DiagnosisTable">
+							<tr class="pt-5">
+								<td colspan="2" class="fs-5 Sans fw-light pb-3">환자이름/환자코드: ${member.name}/(${prefix})</td>
+								<td class="fs-5 Sans fw-light ps-3 pb-3">Patient Code</td>
+								<td class="ps-3"><select id="patientcode" name="patientcode" 
+								class="mb-3 form-control" onchange="selectCode(this.value)">
+										<option value="-">선택하세요</option>
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+								</select></td>
+							</tr>
+							<tr>
+								<td class="fs-5 Sans fw-light pb-3">Diagnostic</td>
+								<td colspan="3"><textarea id="Diagnostic" name="Diagnostic"
+										class="mb-3 form-control" rows="3"></textarea></td>
+							</tr>
+							<tr>
+								<td class="fs-5 Sans text-muted fw-light pb-3">입원 날짜</td>
+								<td><input type="date" id="admission_date"
+									name="admission_date" class="form-control text-muted mb-3"></td>
+								<td class="fs-5 Sans text-muted fw-light ps-3 pb-3">퇴원 날짜</td>
+								<td><input type="date" id="discharge_date"
+									name="discharge_date" class="form-control text-muted mb-3"></td>
+							</tr>
+							<tr>
+								<td class="fs-5 Sans text-muted fw-light pb-3">상병명</td>
+								<td><input type="text" id="disease" name="disease"
+									class="form-control mb-3"></td>
+								<td class="fs-5 Sans text-muted fw-light ps-3 pb-3">수술 날짜</td>
+								<td colspan='3'><input type="date" id="surg_date"
+									name="surg_date" class="form-control text-muted mb-3"></td>
+							</tr>
+							<tr>
+								<td class="fs-5 Sans text-muted fw-light pb-3">수술명</td>
+								<td colspan="3"><input type="text" id="operation"
+									name="operation" class="form-control text-muted mb-3"></td>
+							</tr>
+						</table>
+						<div class="row justify-content-center Sans my-4">
+							<a
+								class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block col-3 p-1 fw-bolder fs-5"
+								href="javascript:digInsert
+							('${member.id}')"
+								onclick="sendParam()"> 저장하기 </a>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<!-- Footer-->
-	<!-- 	<footer class="Sans mt-auto" style="text-shadow: 1px 1px 1px white">
-		<div class=" px-5">
-			<div class="row align-items-end  flex-column ">
-				justify-content-between flex-sm-row
-				<div class="col-auto small m-0">Copyright &copy; Ulsan Green
-					Hospital by Team ABC 2023</div>
-			</div>
-		</div>
-	</footer> -->
 	<!-- Bootstrap core JS-->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 	<!-- Core theme JS-->
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
+	<script src="resources/js/toggleInput.js"></script>
 	<script src="resources/js/digSetParam.js"></script>
 	<script src="resources/js/ModSubBTN.js"></script>
 </body>
