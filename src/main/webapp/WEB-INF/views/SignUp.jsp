@@ -66,7 +66,7 @@
 							<!-- <span
 								style="color: #dc3545; font-size: 0.9rem;" id="msgPassword"></span> -->
 							<div class="valid-feedback">좋아요!</div>
-							<div class="invalid-feedback">영문자, 숫자, 특수기호 조합으로 8자 이상으로
+							<div class="invalid-feedback">영문자, 숫자, 특수기호 조합으로 8자 이상
 								입력하세요.</div>
 						</div>
 
@@ -87,30 +87,28 @@
 								placeholder="이름" type="text" required pattern="^[가-힣]{2,5}$"
 								onkeyup="validateName()"> <label for="name">이름</label>
 							<div class="valid-feedback">좋아요!</div>
-							<div class="invalid-feedback">한글로 시작하는 2~5자 이내로 입력하세요.</div>
+							<div class="invalid-feedback">한글 2~5자 이내로 입력하세요.</div>
 						</div>
 
 						<!-- 5. 주민등록번호 -->
 						<div class="Sans form-floating text-muted mb-3 is-invalid">
 							<input class="form-control" name="residentid" id="residentid"
 								placeholder="주민등록번호" type="text" required
-								pattern="\d{6}[1-4]\d{6}" 
-								onkeyup="validateResidentid()"/> <label for="residentid">주민등록번호
-								(숫자만 입력)</label>
+								pattern="\d{6}[1-4]\d{6}" onkeyup="validateResidentid()" /> <label
+								for="residentid">주민등록번호 (숫자만 입력)</label>
 							<div class="valid-feedback">좋아요!</div>
-							<div class="invalid-feedback">특수문자 제외 숫자로만 입력해 주세요.</div>
+							<div class="invalid-feedback">특수 문자를 제외한 숫자로만 입력해 주세요.</div>
 						</div>
 
 						<!-- 6. 전화번호 -->
 						<div class="Sans form-floating text-muted mb-3 is-invalid">
 							<input class="form-control" name="phone" id="phone"
 								placeholder="전화번호" type="text" required
-								pattern="/^\d{3}?\d{3,4}?\d{4}$/"
-								onkeyup="validatePhone()" />
-							<!-- pattern="01([0|1|6|7|8|9]?)?([0-9]{3,4})?([0-9]{4})$" -->	
+								pattern="/^\d{3}?\d{3,4}?\d{4}$/" onkeyup="validatePhone()" />
+							<!-- pattern="01([0|1|6|7|8|9]?)?([0-9]{3,4})?([0-9]{4})$" -->
 							<label for="phone">휴대폰 번호 (숫자만 입력)</label>
 							<div class="valid-feedback">좋아요!</div>
-							<div class="invalid-feedback">특수문자 제외 숫자로만 입력해 주세요.</div>
+							<div class="invalid-feedback">특수 문자를 제외한 숫자로만 입력해 주세요.</div>
 						</div>
 						<!-- Submit Button-->
 						<div class="Sans text-center pt-2 mb-4">
@@ -125,16 +123,8 @@
 			</div>
 		</div>
 	</div>
-	<!-- Footer-->
-	<!-- 	<footer class="Sans mt-auto" style="text-shadow: 1px 1px 1px white">
-		<div class=" px-5">
-			<div class="row align-items-end  flex-column ">
-				justify-content-between flex-sm-row
-				<div class="col-auto small m-0">Copyright &copy; Ulsan Green
-					Hospital by Team ABC 2023</div>
-			</div>
-		</div>
-	</footer> -->
+	</footer>
+	-->
 	<!-- Bootstrap core JS-->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>

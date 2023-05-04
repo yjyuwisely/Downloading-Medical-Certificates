@@ -11,7 +11,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>진단서 수정하기</title>
+<title>진단서 수정</title>
 <!-- Favicon-->
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 <!-- Custom Google font-->
@@ -52,7 +52,7 @@
 							</div>
 						</div>
 						<form action="dignosisUpdate" method="post" class="Sans mb-3">
-							<%-- 						<input type="hidden" id="memId" name="id" value="${joinMapVal.id}"> --%>
+							<%-- <input type="hidden" id="memId" name="id" value="${joinMapVal.id}"> --%>
 							<input type="hidden" id="memId" name="id" value="${member.id}"
 								class="form-control mb-3">
 							<table class="text-left DiagnosisTable">

@@ -11,7 +11,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>진단서 수정하기</title>
+<title>진단서 작성</title>
 <!-- Favicon-->
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 <!-- Custom Google font-->
@@ -41,7 +41,7 @@
 						<div class="mb-3 p-0">
 							<div class="text-left">
 								<h1 class="display-5 fw-bolder">
-									<span class="text-gradient d-inline pb-2 fs-1">진단서 수정
+									<span class="text-gradient d-inline pb-2 fs-1">진단서 작성
 										${joinMapVal.id}</span>
 								</h1>
 							</div>

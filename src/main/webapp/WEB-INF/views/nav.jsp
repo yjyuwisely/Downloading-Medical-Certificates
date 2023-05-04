@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="com.obj.model.MemberVO"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -12,9 +13,10 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>네비게이션</title>
+<title>관리자 페이지</title>
 <!-- Favicon-->
-<link rel="icon" type="image/x-icon" href="resources/images/hospital.png" />
+<link rel="icon" type="image/x-icon"
+	href="resources/images/hospital.png" />
 <!-- Custom Google font-->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -56,16 +58,26 @@
 						<li class="nav-item"><a href="LogIn"
 							class="nav-link badge bg-gradient-primary-to-secondary text-white px-2 me-2 fs-6">로그인</a></li>
 					</c:if>
-					<c:if test="${not empty common.id or not empty adminUser.id}">
-						<li
-							class="nav-link badge  text-muted px-2 me-2 fs-6">${cert.name}님</li>
-					</c:if>
+					<%
+						String admname = (String) session.getAttribute("name");
+					%>
+					<%
+						String comname = (String) session.getAttribute("commonName");
+					%>
+					<c:choose>
+						<c:when test="${not empty common.id}">
+							<li class="nav-link badge  text-muted px-2 me-2 fs-6"><%=comname%>님</li>
+						</c:when>
+						<c:when test="${not empty adminUser.id}">
+							<li class="nav-link badge  text-muted px-2 me-2 fs-6"><%=admname%>님</li>
+						</c:when>
+					</c:choose>
 					<c:if test="${not empty common.id or not empty adminUser.id}">
 						<li class="nav-item"><a href="logOut"
 							class="nav-link badge bg-gradient-primary-to-secondary text-white px-2 me-2 fs-6">로그아웃</a></li>
 					</c:if>
 					<c:if test="${empty common.id and empty adminUser.id}">
-						<li class="nav-item"><a href="SignUp" id="alertStart"
+						<li class="nav-item"><a href="SignUp"
 							class="nav-link badge bg-gradient-primary-to-secondary text-white px-2 fs-6">회원가입</a></li>
 					</c:if>
 				</ul>

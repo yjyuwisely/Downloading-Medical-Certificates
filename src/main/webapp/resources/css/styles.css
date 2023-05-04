@@ -80,7 +80,7 @@ header {
 	}
 }
 
-/* input 배경 및 그림자 Style */
+/* input 배경 및 그림자 효과 */
 .inputStyle{
 background-color: #fafafa !important;
 box-shadow: inset 0 1px 3px 0 rgba(0,0,0,.08);
@@ -91,18 +91,6 @@ box-shadow: inset 0 1px 3px 0 rgba(0,0,0,.08);
 	table-layout:auto;
 	white-space: nowrap;
 }
-
-/* .DiagnosisTable tr:nth-child(1) td:nth-child(2),
-.DiagnosisTable tr:nth-child(1) td:nth-child(4),
-.DiagnosisTable tr:nth-child(3) td:nth-child(2),
-.DiagnosisTable tr:nth-child(3) td:nth-child(4),
-.DiagnosisTable tr:nth-child(4) td:nth-child(2),
-.DiagnosisTable tr:nth-child(4) td:nth-child(4) {
-	table-layout:auto;
-   width: 40%;
-   margin:0;
-   padding:0;
-} */
 
 /* home.jsp 배경 화면 */
 .BgImage {
@@ -121,7 +109,7 @@ box-shadow: inset 0 1px 3px 0 rgba(0,0,0,.08);
 /* 로고 효과  */
 .LogoGradient-text {
   background: -webkit-linear-gradient(45deg, #56C573, #229CE7, #55CA88, #412fe7); /* 초록, 청록, 초록, 보라 */
-/*   background: -webkit-linear-gradient(45deg, #412fe7, #55CA88, #92CBFA, #412fe7);  *//*보라, 초록, 하늘, 보라 */
+/* background: -webkit-linear-gradient(45deg, #412fe7, #55CA88, #92CBFA, #412fe7); *//*보라, 초록, 하늘, 보라 */
   background-size: 400%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -172,7 +160,7 @@ canvas {
   margin: 0;
 }
 
-/* Internet Issue 버튼 효과 */
+/* home.jsp의 Internet Issue 버튼 효과 */
 .InternetIssue a {
   position: relative;
   display: inline-block;
@@ -277,52 +265,7 @@ canvas {
   }
 }
 
-/* 반응형 디자인 */
-/* @media (max-width: 575.98px) {
-  .table-responsive-sm {
-  font-size: 0.5rem;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-}
-@media (max-width: 767.98px) {
-  .table-responsive-md {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-}
-@media (max-width: 991.98px) {
-  .table-responsive-lg {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-}
-@media (max-width: 1199.98px) {
-  .table-responsive-xl {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-}
-@media (max-width: 1399.98px) {
-  .table-responsive-xxl {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-} */
-
-/* @media screen and (max-width: 768px) {
-  reduce font size of table cells
-  .table-responsive td {
-    font-size: 14px;
-  }
-
-  enable horizontal scrolling for small screens
-  .table-responsive {
-    overflow-x: auto;
-  }
-} */
-
-/* 원본 css 코드 */
+/* 원본 템플릿 style.css 코드 */
 :root {
 	--bs-blue: #1e30f3;
 	--bs-indigo: #6610f2;
@@ -12599,81 +12542,3 @@ body, html {
 		left: -2vw;
 	}
 }
-
-/* .login, .SignUp-h {
-	font-size: 30px;
-	margin-top: 50px;
-}
-
-.SignUp-h {
-	margin-bottom: 50px;
-}
-
-.login-p {
-	font-size: 14px;
-	margin-top: 35px;
-	margin-left: 53px;
-}
-
-.grayLine, .login-email, .login-password, #SigneUp-email, #SigneUp-password,
-	#SignUp-password-confirm, #SigneUp-name, #SigneUp-residentid,
-	#SigneUp-phone {
-	padding: 5px;
-	border-radius: 10px;
-	border: 1px solid #ccc;
-	margin-bottom: 10px;
-	display: inline-block;
-	margin-left: 10px;
-}
-
-.email {
-	margin-left: 14px;
-}
-
-.login-button, #SigneUp-button {
-	background-color: #81c147;
-	color: white;
-	border: none;
-	padding: 10px 20px;
-	margin-top: 50px;
-	margin-left: 80px;
-	cursor: pointer;
-	border-radius: 10px;
-	text-align: center;
-	width: 110px;
-  display: block;
-  margin: 0 auto;
-  text-align: center;
-}
-
-#login-center, #SignUp, .SignUp-h {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	font-weight: bold;
-}
-
-#SigneUp-email {
-	margin-left: 55px;
-}
-
-#SigneUp-password {
-	margin-left: 40px;
-}
-
-#SignUp-password-confirm {
-	margin-left: 6px;
-}
-
-#SigneUp-name {
-	margin-left: 75px;
-}
-
-#SigneUp-residentid {
-	margin-left: 12px;
-}
-
-#SigneUp-phone {
-	margin-left: 23px;
-} */
