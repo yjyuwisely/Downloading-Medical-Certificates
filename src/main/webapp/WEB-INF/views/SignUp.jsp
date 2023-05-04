@@ -42,7 +42,6 @@
 					class="card shadow rounded-4 border-0 col-sm-8 col-md-6 col-lg-5 px-4 pt-4 pb-1 mb-5">
 					<form id="needs-validation" action="memberJoin" method="post"
 						novalidate>
-						<!--  class="was-validated" -->
 						<div class="text-left mb-4">
 							<h1 class="fw-bolder">
 								<span class="d-inline LogoGradient-text fs-1">회원 가입</span>
@@ -62,7 +61,6 @@
 								placeholder="비밀번호" type="password" required
 								pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
 								onchange="validatePassword()" />
-							<!-- pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$" -->
 							<!-- pattern="^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}" -->
 							<label for="password">비밀번호 (영문 숫자 특수문자 조합, 8자리 이상)</label>
 							<!-- <span
@@ -78,7 +76,7 @@
 								placeholder="비밀번호 확인" type="password" required
 								onchange="pwVerifiedCheck()" /> <label for="password">비밀번호
 								확인</label>
-							<!-- 							<div class="valid-feedback">좋아요!</div>
+							<!-- <div class="valid-feedback">좋아요!</div>
 							<div class="invalid-feedback">비밀번호가 일치하지 않습니다.</div> -->
 							<span style="font-size: 0.9rem;" id="msgPassCk"></span>
 						</div>
@@ -110,7 +108,6 @@
 								pattern="/^\d{3}?\d{3,4}?\d{4}$/"
 								onkeyup="validatePhone()" />
 							<!-- pattern="01([0|1|6|7|8|9]?)?([0-9]{3,4})?([0-9]{4})$" -->	
-							<!-- pattern="/^\d{3}?\d{3,4}?\d{4}$/" -->
 							<label for="phone">휴대폰 번호 (숫자만 입력)</label>
 							<div class="valid-feedback">좋아요!</div>
 							<div class="invalid-feedback">특수문자 제외 숫자로만 입력해 주세요.</div>

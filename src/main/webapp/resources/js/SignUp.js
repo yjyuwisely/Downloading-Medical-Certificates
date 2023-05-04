@@ -11,7 +11,6 @@
 				event.stopPropagation(); //이벤트가 상위 엘리먼트에 전달되지 않게 막아 준다.
 				form.classList.add("was-validated"); //클래스 하나 추가
 			}
-
 			// 서버 연동 처리
 		}, false);
 	}, false);
@@ -33,9 +32,9 @@ function validatePassword() {
 //비밀번호 확인 체크: 비밀번호 재확인 입력 시 일치할 것
 console.log("PassCk check connect");
 function pwVerifiedCheck() {
-	var status = document.getElementById('msgPassCk');
-	var password = document.getElementById('password');
-	var passCk = document.getElementById('passCk');
+	const status = document.getElementById('msgPassCk');
+	const password = document.getElementById('password');
+	const passCk = document.getElementById('passCk');
 	if (password.value == passCk.value) {
 		status.innerHTML = "좋아요!";
 		status.style.color = "#198754" //Green
