@@ -105,7 +105,7 @@
 							<div class="row justify-content-center Sans my-4">
 								<input
 									class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block col-3 p-1 fw-bolder fs-5"
-									id="ModSubBTN" type="submit" value="작성하기"
+									id="ModSubBTN" type="submit" value="저장하기"
 									onclick="Check_CD(event)">
 							</div>
 						</form>
