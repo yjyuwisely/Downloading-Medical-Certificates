@@ -5,7 +5,7 @@
 <html lang="ko">
 <head>
 <%
-request.setCharacterEncoding("utf-8");
+	request.setCharacterEncoding("utf-8");
 %>
 <meta charset="utf-8" />
 <meta name="viewport"
@@ -26,7 +26,7 @@ request.setCharacterEncoding("utf-8");
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
 	rel="stylesheet" />
 <!-- Core theme CSS (includes Bootstrap)-->
-<!-- <link href="resources/css/styles.css" rel="stylesheet" /> -->
+<link href="resources/css/styles.css" rel="stylesheet" />
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <!-- Navigation-->
@@ -40,59 +40,80 @@ request.setCharacterEncoding("utf-8");
 			<div class="row gx-5 justify-content-center">
 				<div
 					class="card shadow rounded-4 border-0 col-sm-8 col-md-6 col-lg-5 px-4 pt-4 pb-1 mb-5">
-					<form action="memberJoin" method="post">
+					<form id="needs-validation" action="memberJoin" method="post"
+						novalidate>
+						<!--  class="was-validated" -->
 						<div class="text-left mb-4">
 							<h1 class="fw-bolder">
 								<span class="d-inline LogoGradient-text fs-1">회원 가입</span>
 							</h1>
 						</div>
 						<!-- 1. 이메일 -->
-						<div class="Sans form-floating text-muted mb-3">
+						<div class="Sans form-floating text-muted mb-3 is-invalid">
 							<input class="form-control" name="email" id="email" type="email"
-								onchange="checkDupEmail(email)" placeholder="이메일" />
-							<!-- onkeyup="emailCheck()"  -->
-							<label for="email">이메일</label>
+								onchange="checkEmail(email)" placeholder="이메일" /> <label
+								for="email">이메일</label> <span style="color: #dc3545"
+								id="emailMsg"></span>
 						</div>
-						<!--  /(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))
-						@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|
-						(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,})) -->
-						<span style="color: #dc3545" id="emailMsg"></span>
 
 						<!-- 2. 비밀번호 -->
-						<div class="Sans form-floating text-muted mb-3">
+						<div class="Sans form-floating text-muted mb-3 is-invalid">
 							<input class="form-control" name="password" id="password"
 								placeholder="비밀번호" type="password" required
-								pattern="^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}" />
-							<label for="password">비밀번호</label>
+								pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
+								onchange="validatePassword()" />
+							<!-- pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$" -->
+							<!-- pattern="^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}" -->
+							<label for="password">비밀번호 (영문 숫자 특수문자 조합, 8자리 이상)</label>
+							<!-- <span
+								style="color: #dc3545; font-size: 0.9rem;" id="msgPassword"></span> -->
+							<div class="valid-feedback">좋아요!</div>
+							<div class="invalid-feedback">영문자, 숫자, 특수기호 조합으로 8자 이상으로
+								입력하세요.</div>
 						</div>
 
 						<!-- 3. 비밀번호 확인 -->
-						<div class="Sans form-floating text-muted mb-3">
+						<div class="Sans form-floating text-muted mb-3 is-invalid">
 							<input class="form-control" name="passCk" id="passCk"
-								placeholder="비밀번호 확인" type="password" required /> <label
-								for="password">비밀번호 확인</label>
+								placeholder="비밀번호 확인" type="password" required
+								onchange="pwVerifiedCheck()" /> <label for="password">비밀번호
+								확인</label>
+							<!-- 							<div class="valid-feedback">좋아요!</div>
+							<div class="invalid-feedback">비밀번호가 일치하지 않습니다.</div> -->
+							<span style="font-size: 0.9rem;" id="msgPassCk"></span>
 						</div>
 
 						<!-- 4. 이름 -->
-						<div class="Sans form-floating text-muted mb-3">
+						<div class="Sans form-floating text-muted mb-3 is-invalid">
 							<input class="form-control" name="name" id="name"
-								placeholder="이름" type="text" required pattern="^[가-힣]{2,5}$">
-							<label for="name">이름</label>
+								placeholder="이름" type="text" required pattern="^[가-힣]{2,5}$"
+								onkeyup="validateName()"> <label for="name">이름</label>
+							<div class="valid-feedback">좋아요!</div>
+							<div class="invalid-feedback">한글로 시작하는 2~5자 이내로 입력하세요.</div>
 						</div>
 
 						<!-- 5. 주민등록번호 -->
-						<div class="Sans form-floating text-muted mb-3">
+						<div class="Sans form-floating text-muted mb-3 is-invalid">
 							<input class="form-control" name="residentid" id="residentid"
 								placeholder="주민등록번호" type="text" required
-								pattern="\d{6}[1-4]\d{6}" /> <label for="residentid">주민등록번호</label>
+								pattern="\d{6}[1-4]\d{6}" 
+								onkeyup="validateResidentid()"/> <label for="residentid">주민등록번호
+								(숫자만 입력)</label>
+							<div class="valid-feedback">좋아요!</div>
+							<div class="invalid-feedback">특수문자 제외 숫자로만 입력해 주세요.</div>
 						</div>
 
-						<!-- 6. 휴대폰 -->
-						<div class="Sans form-floating text-muted mb-3">
+						<!-- 6. 전화번호 -->
+						<div class="Sans form-floating text-muted mb-3 is-invalid">
 							<input class="form-control" name="phone" id="phone"
-								placeholder="휴대폰 번호" type="text" required
-								pattern="01([0|1|6|7|8|9]?)?([0-9]{3,4})?([0-9]{4})$" /> <label
-								for="phone">휴대폰 번호</label>
+								placeholder="전화번호" type="text" required
+								pattern="/^\d{3}?\d{3,4}?\d{4}$/"
+								onkeyup="validatePhone()" />
+							<!-- pattern="01([0|1|6|7|8|9]?)?([0-9]{3,4})?([0-9]{4})$" -->	
+							<!-- pattern="/^\d{3}?\d{3,4}?\d{4}$/" -->
+							<label for="phone">휴대폰 번호 (숫자만 입력)</label>
+							<div class="valid-feedback">좋아요!</div>
+							<div class="invalid-feedback">특수문자 제외 숫자로만 입력해 주세요.</div>
 						</div>
 						<!-- Submit Button-->
 						<div class="Sans text-center pt-2 mb-4">
@@ -103,19 +124,6 @@ request.setCharacterEncoding("utf-8");
 							</c:if>
 						</div>
 					</form>
-
-					<!-- <form id="contactForm" data-sb-form-api-token="API_TOKEN">
-						<div class="form-floating mb-3">
-							<input class="form-control" id="email" type="email"
-								placeholder="name@example.com"
-								data-sb-validations="required,email" /> <label for="email">Email
-								address</label>
-							<div class="invalid-feedback" data-sb-feedback="email:required">An
-								email is required.</div>
-							<div class="invalid-feedback" data-sb-feedback="email:email">Email
-								is not valid.</div>
-						</div>
-					</form> -->
 				</div>
 			</div>
 		</div>
