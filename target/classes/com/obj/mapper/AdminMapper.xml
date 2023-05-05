@@ -4,55 +4,59 @@
 <mapper namespace="com.obj.mapper.AdminMapper">
 
 <select id="memberList" resultType="com.obj.model.MemberVO">
-	select * from member where doctor='n'
+select * from member where doctor='n'
+
 </select>
 
 <!-- WHERE patientcode IN (1, 2, 3); -->
 
 <insert id="diagnosis" parameterType="com.obj.model.PatientVO">
-	INSERT INTO certificate 
-	(id, Diagnostic, patientcode, admission_date, discharge_date, disease, operation, surg_date) 
-	VALUES 
-	(#{id}, #{Diagnostic}, #{patientcode}, #{admission_date}, #{discharge_date}, #{disease}, #{operation}, #{surg_date});
+INSERT INTO certificate 
+(id, Diagnostic, patientcode, admission_date, discharge_date, disease, operation, surg_date) 
+VALUES 
+(#{id}, #{Diagnostic}, #{patientcode}, #{admission_date}, #{discharge_date}, #{disease}, #{operation}, #{surg_date});
 </insert>
 
 <select id="digSelect" resultType="com.obj.model.PatientVO">
-	SELECT * FROM certificate
+SELECT * FROM certificate
 </select>
 
 <update id="dignosisUpdate">
-	UPDATE certificate
-	  SET
-	    Diagnostic = #{Diagnostic},
-	    patientcode = #{patientcode},
-	    admission_date = #{admission_date},
-	    discharge_date = #{discharge_date},
-	    disease = #{disease},
-	    operation = #{operation},
-	    surg_date = #{surg_date}
-	  WHERE id = #{id}
+UPDATE certificate
+  SET
+    Diagnostic = #{Diagnostic},
+    patientcode = #{patientcode},
+    admission_date = #{admission_date},
+    discharge_date = #{discharge_date},
+    disease = #{disease},
+    operation = #{operation},
+    surg_date = #{surg_date}
+  WHERE id = #{id}
 </update>
 
 <!-- VO사용 left JOIN -->
-<select id="memCertJoin" resultType="com.obj.model.MemberCertJoinVO">
-		SELECT
-		m.id, m.name, m.residentid, c.diagnostic, c.disease, c.operation, c.surg_date, c.admission_date,
-		c.discharge_date, c.patientcode
-		FROM member m
-		LEFT JOIN certificate c
-		ON m.id=c.id
-		where doctor='n'
+<select id="memCertJoin"
+	resultType="com.obj.model.MemberCertJoinVO">
+	SELECT
+	m.id, m.name, m.residentid, c.diagnostic, c.disease, c.operation, c.surg_date, c.admission_date,
+	c.discharge_date, c.patientcode
+	FROM member m
+	LEFT JOIN certificate c
+	ON m.id=c.id
+	<![CDATA[
+	where doctor='n' and m.name <> ''
+	]]>
 </select>
 
 <!-- resultMap사용 JOIN -->
 <select id="digModifyJoinMap" parameterType="com.obj.model.MemberVO" resultMap="memberResultMap">
-		SELECT
-		m.id, m.name, m.residentid, c.diagnostic, c.disease, c.operation, c.surg_date, c.admission_date,
-		c.discharge_date, c.patientcode
-		FROM member m
-		JOIN certificate c
-		ON m.id=c.id
-		WHERE m.id=#{id}
+	SELECT
+	m.id, m.name, m.residentid, c.diagnostic, c.disease, c.operation, c.surg_date, c.admission_date,
+	c.discharge_date, c.patientcode
+	FROM member m
+	JOIN certificate c
+	ON m.id=c.id
+	WHERE m.id=#{id}
 </select>
 
 <resultMap type="com.obj.model.MemberVO" id="memberResultMap">
@@ -71,24 +75,24 @@
 		<result column="patientcode" property="patientcode"/>
 </resultMap>
 
-<!-- <select id="memSearch" resultType="com.obj.model.CertificateVO"> -->
-<!-- 	SELECT name,residentid, disease, operation, surg_date, -->
-<!-- 	admission_date, discharge_date, patientcode -->
-<!-- 	FROM member m -->
-<!-- 	JOIN certificate c -->
-<!-- 	ON m.id = c.id -->
-<!-- 	where doctor='n' -->
-<!-- 	<if test="keyword != null"> -->
-<!-- 		<choose> -->
-<!-- 			<when test="type=='N'.toString()"> -->
-<!-- 				and name like concat('%',#{keyword},'%') -->
-<!-- 			</when> -->
-<!-- 			<when test="type=='D'.toString()"> -->
-<!-- 				and disease like concat('%',#{keyword},'%') -->
-<!-- 			</when> -->
-<!-- 		</choose> -->
-<!-- 	</if> -->
-<!-- </select> -->
+<select id="memSearch" parameterType="com.obj.model.MemberCertJoinVO" resultType="com.obj.model.MemberCertJoinVO">
+	SELECT name,residentid, disease, operation, surg_date,
+	admission_date, discharge_date, patientcode
+	FROM member m
+	JOIN certificate c
+	ON m.id = c.id
+	where doctor='n'
+	<if test="keyword != null">
+		<choose>
+			<when test="type=='N'.toString()">
+				and name like concat('%',#{keyword},'%')
+			</when>
+			<when test="type=='D'.toString()">
+				and disease like concat('%',#{keyword},'%')
+			</when>
+		</choose>
+	</if>
+</select>
 
 <!-- ${컨트롤러 모델변수명.콜렉션의 프로퍼티 이름.원하는 칼럼명} 이렇게 해보자 -->
 
@@ -105,6 +109,7 @@
 <!--     <result column="AAA_COL2" property="aaaCol2"/> -->
 <!--     <collection property="bbbVo" resultMap="BbbVo"/> -->
 <!-- </resultMap> -->
+
 
 <!-- <resultMap type="com.obj.model.MemberVO" -->
 <!-- 	id="joinTableResultMap"> -->
@@ -123,5 +128,6 @@
 <!-- 		<result column="patientcode" property="patientcode" /> -->
 <!-- 	</collection> -->
 <!-- </resultMap> -->
+
 
 </mapper>

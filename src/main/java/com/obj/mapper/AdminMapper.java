@@ -12,6 +12,7 @@ public interface AdminMapper {
 	public void diagnosis(PatientVO patient);
 	public ArrayList<PatientVO> digSelect(PatientVO patient);
 	public void dignosisUpdate(PatientVO patient);
-	public List<MemberCertJoinVO> memCertJoin(MemberCertJoinVO certVal);
+	public List<MemberCertJoinVO> memCertJoin(MemberCertJoinVO memcert);
 	public MemberVO digModifyJoinMap(MemberVO member);
+	public ArrayList<MemberCertJoinVO> memSearch(MemberCertJoinVO memcert);
 }

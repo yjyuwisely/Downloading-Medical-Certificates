@@ -13,38 +13,41 @@ const linkSurg = document.getElementById("linkSurg");	// 수술확인서
 // 진료확인서
 linkGeneral.addEventListener("click", clickGeneral);
 
-function clickGeneral(e){
+function clickGeneral(e) {
 	if (patientcode === '2' || patientcode === '3') {
 		e.preventDefault(); //a 태그나 submit 태그의 고유의 동작을 중단
 		Swal.fire('내역이 없습니다.', '', 'error');
-	} 
+	}
 	else {
-		window.location.href = "/GeneralDown?id=${common.id}";
+		window.location.href = "javascript:GeneralRequest('${common.id}')";
+		//window.location.href = "/GeneralDown?id=${common.id}";
 	}
 };
 
 // 입퇴원확인서
 linkInout.addEventListener("click", clickInout);
-function clickInout(e){
+function clickInout(e) {
 	if (patientcode === '1' || patientcode === '3') {
 		e.preventDefault();
 		Swal.fire('내역이 없습니다.', '', 'error');
-	} 
+	}
 	else {
-		window.location.href = "/InoutDown?id=${common.id}";
+		window.location.href = "javascript:InOutRequest('${common.id}')";
+		//window.location.href = "/InoutDown?id=${common.id}";
 	}
 };
 
 // 수술확인서
 linkSurg.addEventListener("click", clickSurg);
-function clickSurg(e){
+function clickSurg(e) {
 	console.log("Connect: linkSurg")
 	if (patientcode === '1' || patientcode === '2') {
 		e.preventDefault();
 		Swal.fire('내역이 없습니다.', '', 'error');
-	} 
+	}
 	else {
-		window.location.href = "/SergDown?id=${common.id}";
+		window.location.href = href = "javascript:SergRequest('${common.id}')";
+		//window.location.href = "/SergDown?id=${common.id}";
 	}
 };
 
@@ -53,7 +56,7 @@ function clickSurg(e){
 //alertLink.addEventListener('click', showAlert);
 //
 //function showAlert() {
-//	//	event.preventDefault(); // Prevent a link from opening the URL 
+//	//	event.preventDefault(); // Prevent a link from opening the URL
 //	//	alert("내역이 없습니다.");
 //	Swal.fire('내역이 없습니다.', '', 'warning');
 //}

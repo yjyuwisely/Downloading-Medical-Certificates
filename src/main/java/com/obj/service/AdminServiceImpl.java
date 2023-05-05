@@ -38,15 +38,23 @@ public class AdminServiceImpl implements AdminService {
 	public void dignosisUpdate(PatientVO patient) {
 		logger.info("AdminServiceImpl patient = {}", patient);
 		adMapper.dignosisUpdate(patient);
+		
 	}
 
 	@Override
-	public List<MemberCertJoinVO> memCertJoin(MemberCertJoinVO certVal) {
-		return adMapper.memCertJoin(certVal);
+	public List<MemberCertJoinVO> memCertJoin(MemberCertJoinVO memcert) {
+		return adMapper.memCertJoin(memcert);
 	}
 
 	@Override
 	public MemberVO digModifyJoinMap(MemberVO member) {
 		return adMapper.digModifyJoinMap(member);
 	}
+
+	@Override
+	public ArrayList<MemberCertJoinVO> memSearch(MemberCertJoinVO memcert) {
+		logger.info("AdminServiceImpl memSearch = {}", memcert);
+		return adMapper.memSearch(memcert);
+	}
+
 }

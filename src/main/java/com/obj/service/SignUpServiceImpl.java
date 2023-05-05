@@ -24,4 +24,5 @@ public class SignUpServiceImpl implements SignUpService {
 	public int checkEmail(String email) {
 		return signmap.checkEmail(email);
 	}
+
 }

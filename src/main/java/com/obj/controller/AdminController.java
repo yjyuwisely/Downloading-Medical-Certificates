@@ -1,17 +1,19 @@
 package com.obj.controller;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.servlet.view.RedirectView;
-
 import com.obj.model.MemberCertJoinVO;
 import com.obj.model.MemberVO;
 import com.obj.service.AdminService;
@@ -21,33 +23,31 @@ import com.obj.model.PatientVO;
 public class AdminController {
 	private static final Logger logger = LoggerFactory.getLogger(AdminController.class);
 	
-	@ModelAttribute("memVal")
-	public MemberVO memb() {
-		return new MemberVO();
-	}
-	@ModelAttribute("patientVal")
-	public PatientVO patient() {
-		return new PatientVO();
-	}
-	
 	@Autowired
 	AdminService adServ;
 	
 	//VO를 파라미터로 줄때는 @ModelAttribute가 생략되있는 상태
 	@GetMapping("/Admin")
-	public String memberList(Model model, MemberVO member,  MemberCertJoinVO certVal,
+	public String memberList(Model model, MemberVO member, MemberCertJoinVO memcert,
 			PatientVO patient, HttpSession session) {
 		session.setAttribute("email", adServ.memberList(member));
-		model.addAttribute("memcertVal", adServ.memCertJoin(certVal));
+		model.addAttribute("memcertVal", adServ.memCertJoin(memcert));
 		model.addAttribute("member", adServ.memberList(member));
 		logger.info("AdminPage member is ={}", member);
-		logger.info("AdminPage memcertVal is ={}", certVal);
+		logger.info("AdminPage certVal is ={}", memcert);
 		return "/Admin";
+	}
+	
+	@GetMapping("/search")
+	public ResponseEntity<ArrayList<MemberCertJoinVO>> memSearch(MemberCertJoinVO memcert){
+		//ArrayList<MemberCertJoinVO> result = adServ.memSearch(memcert);
+		logger.info("AdminPage keyword is ={}", memcert);
+		return new ResponseEntity<>(adServ.memSearch(memcert), HttpStatus.OK);
 	}
 	
 	@PostMapping("/patientWriteUp")
 	public String membermodify(Model model, MemberVO member) {
-		logger.info("Welcome Diagnosis!");
+		logger.info("Welcome First Diagnosis!");
 		String getId = member.getId();
 		String prefix = getId.substring(0, 8);
 		model.addAttribute("prefix", prefix);
@@ -58,7 +58,10 @@ public class AdminController {
 	
 	@PostMapping("/patientModify")
 	public String memberModify(Model model, MemberVO member) {
-		logger.info("Welcome Diagnosis!");
+		logger.info("Welcome Modify Diagnosis!");
+		String getId = member.getId();
+		String prefix = getId.substring(0, 8);
+		model.addAttribute("prefix", prefix);
 		model.addAttribute("member", member);
 		model.addAttribute("joinMapVal", adServ.digModifyJoinMap(member));
 		logger.info("Welcome Diagnosis! member is = {}", member);
@@ -84,11 +87,14 @@ public class AdminController {
 	 * 홈화면에 버튼 없애기
 	 * 관리자 로그인 해결하기 Y/N 분기 -> 뭔가 애매하긴한데 지금 할수있는건 별로 없는듯
 	 * post이동으로 다 바꾸기, ajax쓸수있는곳은 다써보기 -> https://devmg.tistory.com/221
-	 * 페이징/ajax검색 둘중하나... 검색할까
-	 * 
+	 * 작성페이지 의사 이름or메일 끌어오기 전화번호 형식변경
+	 * 전화번호 자동하이픈 -> 정규식
 	 * 증명서 다운 post 처리하기
 	 * 이름/주민없이 회원가입이나 로그인처리 XX -> 정규식에서 캇 가능?
 	 * 
+	 * admin.jsp에서 onclick지우자 2번정의해서 콘솔 에러난거임/검색결과를 못읽는경우가 있다 수정하자
+	 * js파일 안되면 search 이거랑 /search 이거 바꿔보기
+	 * issueRequest.js 추가 컨트롤러 post맵핑/jsp a태그 주소 변경
 	 * 
 	 * 조인! 제일 중요 (완료)
 	 * 증명서 리스트는 지금처럼 3개 띄우고 신청클릭시 해당페이지에 내역없음 띄우기
@@ -114,6 +120,8 @@ public class AdminController {
 	 * 환자번호 UUID 뒤에짜르고 보여줘보기 ex)환자명/환자번호 : 박환자/298382 (완료)
 	 * 수정하고 환자분류 alert창띄우고 그냥 update됨 ㅋ (완료)
 	 * 로그아웃버튼 만들기/관리자여부에따른 관리자페이지 버튼 (완료)
+	 * ajax검색기능 (완료)
+	 * 비 로그인 증명서페이지 접근제한 (완료)
 	 * js 정규식, 약관? ㅇ
 	 * 
 	 * 정보가져오고 싶으면 mapper.xml에서 셀렉트에 원하는칼럼 넣어야함 
@@ -131,4 +139,7 @@ public class AdminController {
 	 * pmp자격증?
 	 * 
 	 */
+
+	
+
 }

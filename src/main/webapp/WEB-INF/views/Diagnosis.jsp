@@ -60,7 +60,7 @@
 								<td colspan="2" class="fs-5 Sans fw-light pb-3">환자이름/환자코드: ${member.name}/(${prefix})</td>
 								<td class="fs-5 Sans fw-light ps-3 pb-3">Patient Code</td>
 								<td class="ps-3"><select id="patientcode" name="patientcode" 
-								class="mb-3 form-control" onchange="selectCode(this.value)">
+								class="form-control mb-3" onchange="selectCode(this.value)">
 										<option value="-">선택하세요</option>
 										<option value="1">1</option>
 										<option value="2">2</option>
