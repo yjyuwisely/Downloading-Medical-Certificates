@@ -44,9 +44,9 @@ request.setCharacterEncoding("utf-8");
 				<div class="col-lg-8 col-xl-7 col-xxl-6">
 					<div class="text-center mb-3">
 						<h1 class="display-5 fw-bolder mb-4">
-							<span class="d-inline LogoGradient-text fs-1">온라인 증명서 발급
-								cert.patientcode: ${cert.patientcode} <input name="patientcode"
-								value="${cert.patientcode}" id="patientcode"> <!-- type="hidden"  -->
+							<span class="d-inline LogoGradient-text fs-1">온라인 증명서 발급 <input
+								name="patientcode" type="hidden" value="${cert.patientcode}"
+								id="patientcode">
 							</span>
 						</h1>
 					</div>
@@ -113,8 +113,7 @@ request.setCharacterEncoding("utf-8");
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
-	<script src="resources/js/issueRequest.js"></script>
-	<!-- alert 창 -->
 	<script src="resources/js/issueAlert.js"></script>
+	<script src="resources/js/issueRequest.js"></script>
 </body>
 </html>
