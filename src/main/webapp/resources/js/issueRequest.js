@@ -67,4 +67,3 @@ function SergRequest(id){
     document.body.appendChild(f);
     f.submit();
 }
-

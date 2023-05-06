@@ -40,7 +40,6 @@
 					<span class="text-gradient d-inline fs-2">관리자 페이지</span><br>
 				</h1>
 			</div>
-
 			<div class="text-end text-muted">
 				<%
 				String name = (String) session.getAttribute("name");
@@ -48,7 +47,6 @@
 				<p>
 					관리자 계정: Doctor:<%=name%></p>
 			</div>
-
 			<div class="d-flex justify-content-start">
 				<div class="d-flex align-items-center">
 					<select id="type" name="type"
@@ -59,7 +57,6 @@
 						class="form-control my-3">
 				</div>
 			</div>
-
 			<div class="row gx-5 justify-content-center">
 				<div class="card shadow border-0 rounded-4 mb-5">
 					<div class="card-body row align-items-center">

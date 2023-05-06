@@ -3,6 +3,7 @@ console.log("Connect: Swal.fire()")
 // Swal.fire 경고창 적용
 patientcode = document.getElementById("patientcode").value;
 console.log("patientcode:" + patientcode)
+console.log("patientcode typeof:" + typeof patientcode);
 
 // Once a constant is initialized, we cannot change its value
 // const 변수는 업데이트와 재선언 둘 다 불가능하다.
@@ -14,7 +15,7 @@ const linkSurg = document.getElementById("linkSurg");	// 수술확인서
 linkGeneral.addEventListener("click", clickGeneral);
 
 function clickGeneral(e) {
-	if (patientcode === '2' || patientcode === '3') {
+	if (patientcode === '2' || patientcode === '3' || patientcode.trim() === '') {
 		e.preventDefault(); //a 태그나 submit 태그의 고유의 동작을 중단
 		Swal.fire('내역이 없습니다.', '', 'error');
 	}
@@ -27,7 +28,7 @@ function clickGeneral(e) {
 // 입퇴원확인서
 linkInout.addEventListener("click", clickInout);
 function clickInout(e) {
-	if (patientcode === '1' || patientcode === '3') {
+	if (patientcode === '1' || patientcode === '3' || patientcode.trim() === '') {
 		e.preventDefault();
 		Swal.fire('내역이 없습니다.', '', 'error');
 	}
@@ -41,7 +42,7 @@ function clickInout(e) {
 linkSurg.addEventListener("click", clickSurg);
 function clickSurg(e) {
 	console.log("Connect: linkSurg")
-	if (patientcode === '1' || patientcode === '2') {
+	if (patientcode === '1' || patientcode === '2' || patientcode.trim() === '') {
 		e.preventDefault();
 		Swal.fire('내역이 없습니다.', '', 'error');
 	}
