@@ -4,7 +4,7 @@
 <html lang="ko">
 <head>
 <%
-request.setCharacterEncoding("utf-8");
+	request.setCharacterEncoding("utf-8");
 %>
 <meta charset="utf-8" />
 <meta name="viewport"
@@ -40,9 +40,7 @@ request.setCharacterEncoding("utf-8");
 	<div class="container col-xl-7 card border-0 rounded-4">
 		<div class="text-end Sans text-muted mb-4 ">
 			<%
-			p
-
-			String name = (String) session.getAttribute("name");
+				String name = (String) session.getAttribute("name");
 			%>
 			관리자 계정: Doctor:
 			<%=name%>

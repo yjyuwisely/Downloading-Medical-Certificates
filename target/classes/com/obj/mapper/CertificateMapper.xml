@@ -8,7 +8,7 @@
 	<select id="Issue" resultMap="MemberCertJoinVal">
 		SELECT m.id, name, patientcode
 		FROM member AS m
-		INNER JOIN certificate AS c
+		LEFT JOIN certificate AS c <!-- patientcode: null 값도 있으므로 LEFT JOIN을 쓴다.  -->
 		<!-- ON: JOIN 을 하기 전 필터링 -->
 		ON m.id = c.id <!-- 동일 칼럼: id  -->
 		<!-- WHERE: JOIN 을 한 후 필터링 -->
@@ -20,10 +20,8 @@
 		SELECT m.id, name, residentid, disease, patientcode
 		FROM member AS m
 		INNER JOIN certificate AS c
-		<!-- ON: JOIN 을 하기 전 필터링 -->
-		ON m.id = c.id <!-- 동일 칼럼: id --> 
-		<!-- WHERE: JOIN 을 한 후 필터링 -->
-		WHERE m.id = #{id} and c.patientcode = '1' <!-- 로그인한 유저: the value of the id parameter that is passed to the SQL query at runtime -->
+		ON m.id = c.id
+		WHERE m.id = #{id} and c.patientcode = '1' 
 	</select>
 	
 	<!-- 입퇴원 확인서 -->
@@ -55,3 +53,31 @@
 		<result property="patientcode" column="patientcode" />
 	</resultMap> 
 </mapper>
+
+<!-- resultMap 안 쓴 기존 코드  -->
+<!-- 	진료확인서
+	<select id="GeneralDown" resultType="com.obj.model.MemberCertJoinVO">
+		SELECT m.id, name, residentid, disease
+		FROM member AS m
+		INNER JOIN certificate AS c
+		ON m.id = c.id 동일 칼럼: id
+		WHERE m.id = #{id} 로그인한 유저
+	</select>
+
+	입,퇴원확인서
+	<select id="InoutDown" resultType="com.obj.model.MemberCertJoinVO">
+		SELECT m.id, name, residentid, disease, admission_date, discharge_date
+		FROM member AS m
+		INNER JOIN certificate AS c 
+		ON m.id = c.id
+		WHERE m.id = #{id}
+	</select>
+
+	수술확인서
+	<select id="SergDown" resultType="com.obj.model.MemberCertJoinVO">
+		SELECT m.id, name, residentid, disease, operation, surg_date
+		FROM member AS m
+		INNER JOIN certificate AS c 
+		ON m.id = c.id
+		WHERE m.id = #{id}
+	</select> --> 
