@@ -33,7 +33,7 @@
 </head>
 
 <!-- Navigation-->
-<div class=print-hide">
+<div class="print-hide">
 	<nav class="navbar navbar-expand-lg bg-white">
 		<div class="container px-5">
 			<a class="print-hide navbar-brand LogoGradient-text Mont fs-5 px-3"
