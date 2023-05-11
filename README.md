@@ -1,4 +1,34 @@
-# Downloading-Medical-Certificates
+<h1>Downloading Medical Certificates</h1>
+<p align="justify">This is a group project that I contributed to as a full-stack developer. 
+Our team built a web application that allows users to download medical certificates from a centralized database.<p align="justify">
+
+<h2>Project Status</h2>
+<p align="justify">
+I worked on this project from April 17th, 2023 to May 9th, 2023.</p>
+
+<h2>Technologies Used</h2>
+<li>HTML</li>
+<li>CSS</li>
+<li>Vanilla JavaScript</li>
+<li>Bootstrap</li>
+<li>Java</li>
+<li>Spring</li>
+<li>MySQL</li>
+
+<h2>Project Role</h2>
+<p align="justify" style="display:none">For this project, my role included the following:
+
+<li>Implemented the online medical certificate application feature, which allows users to apply for medical certificates online.</li>
+<li>Implemented the online medical certificate viewing and printing feature, which allows users to view and download their digital certificates</li>
+<li>Created the registration feature with validation, which ensures that user input is accurate and complete before registration</li>
+<li>Implemented the front-end screens using HTML, CSS, Javascript and Bootstrap, which provide a user-friendly interface for interacting with the website.</li>
+<li>Adapted the Start Bootstrap responsive web design to the project requirements, ensuring that the website displays correctly on various devices and screen sizes.</li>
+<li>Contributed to the project planning using Figma, which helped to organize the team's ideas and visualize the final product.</li>
+<li>Created the project presentation in Canva, which summarized the project's features and demonstrated its functionality.</li>
+</p>
+<br>
+<p align="justify">Overall, this project has been a great learning experience for me 
+as it allowed me to collaborate with other developers and contribute to a real-world project.</p></details>
 
 <h2>Page Screenshot</h2>
 Here's a screenshot of the main page:
