@@ -31,9 +31,10 @@ I worked on this project from April 17th, 2023 to May 9th, 2023.</p>
 as it allowed me to collaborate with other developers and contribute to a real-world project.</p></details>
 
 <h2>Visual Content</h2> 
-Explore the project's visual content, which includes both videos and screenshots, to get a better understanding of the application's features and functionality. 
+Explore the project's visual content, which includes videos and screenshots, to get a better understanding of the website's features and functionality.
 
-Click [here](https://yjyuwisely.tistory.com/entry/24-230511-%ED%8C%80-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-1-24%EC%9D%BC-%EC%B0%A8-Thu-%EC%B5%9C%EC%A2%85-%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7) to access the visual content.
+<b>[Video Demonstrations and Screenshots](https://yjyuwisely.tistory.com/entry/24-230511-%ED%8C%80-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-1-24%EC%9D%BC-%EC%B0%A8-Thu-%EC%B5%9C%EC%A2%85-%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7)</b><br>
+Access the visual content to view video demonstrations and browse through the screenshots showcasing different aspects of the website.
 
 <h2>Page Screenshot</h2>
 Here's a screenshot of the main page:
