@@ -30,6 +30,11 @@ I worked on this project from April 17th, 2023 to May 9th, 2023.</p>
 <p align="justify">Overall, this project has been a great learning experience for me 
 as it allowed me to collaborate with other developers and contribute to a real-world project.</p></details>
 
+<h2>Visual Content</h2> 
+Explore the project's visual content, which includes both videos and screenshots, to get a better understanding of the application's features and functionality. 
+
+Click [here](https://yjyuwisely.tistory.com/entry/24-230511-%ED%8C%80-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-1-24%EC%9D%BC-%EC%B0%A8-Thu-%EC%B5%9C%EC%A2%85-%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7) to access the visual content.
+
 <h2>Page Screenshot</h2>
 Here's a screenshot of the main page:
 <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbwgMHj%2FbtseK39kNja%2FoqlT1GFtmeE4CDRXPuo7uK%2Fimg.png">
