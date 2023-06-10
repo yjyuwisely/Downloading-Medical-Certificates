@@ -16,8 +16,11 @@ I worked on this project from April 17th, 2023 to May 9th, 2023.</p>
 <li>MySQL</li>
 
 <h2>Project Role</h2>
-<p align="justify" style="display:none">For this project, my role included the following:
-
+<p align="justify" style="display:none">
+  
+  In this project, I was responsible for designing and implementing the user interface using HTML, CSS, and Bootstrap. Additionally, I have incorporated Vanilla JavaScript and Spring to add interactivity to the site.
+  
+  My role included the following:
 <li>Implemented the online medical certificate application feature, which allows users to apply for medical certificates online.</li>
 <li>Implemented the online medical certificate viewing and printing feature, which allows users to view and download their digital certificates</li>
 <li>Created the registration feature with validation, which ensures that user input is accurate and complete before registration</li>
